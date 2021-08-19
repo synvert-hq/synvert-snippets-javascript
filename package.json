@@ -1,0 +1,24 @@
+{
+  "name": "synvert-snippets",
+  "version": "0.0.0",
+  "description": "synvert javascript snippets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xinminlabs/synvert-snippets-javascript.git"
+  },
+  "keywords": [
+    "synvert",
+    "snippets",
+    "javascript"
+  ],
+  "author": "Richard Huang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xinminlabs/synvert-snippets-javascript/issues"
+  },
+  "homepage": "https://github.com/xinminlabs/synvert-snippets-javascript#readme"
+}
