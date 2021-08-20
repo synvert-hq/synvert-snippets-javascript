@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/xinminlabs/synvert-snippets-javascript/issues"
   },
-  "homepage": "https://github.com/xinminlabs/synvert-snippets-javascript#readme"
+  "homepage": "https://github.com/xinminlabs/synvert-snippets-javascript#readme",
+  "dependencies": {
+    "synvert-core": "^0.2.0"
+  }
 }
