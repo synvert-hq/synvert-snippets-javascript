@@ -1,7 +1,7 @@
 const fs = require('fs')
 const mock = require('mock-fs')
 const Synvert = require("synvert-core")
-require('../../lib/nodejs/prefer-string-trim-start-end')
+require('../../lib/javascript/prefer-string-trim-start-end')
 
 describe("Prefer String trimStart and trimEnd", () => {
   const input = `
