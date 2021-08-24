@@ -20,7 +20,7 @@ describe("Prefer String trimStart and trimEnd", () => {
   })
 
   test("convert", () => {
-    const rewriter = Synvert.Rewriter.fetch('nodejs', 'preferStringTrimStartEnd')
+    const rewriter = Synvert.Rewriter.fetch('javascript', 'preferStringTrimStartEnd')
     rewriter.process()
     expect(fs.readFileSync('code.js', 'utf-8')).toEqual(output)
   })
