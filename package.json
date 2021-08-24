@@ -2,7 +2,6 @@
   "name": "synvert-snippets",
   "version": "0.0.0",
   "description": "synvert javascript snippets",
-  "main": "index.js",
   "scripts": {
     "test": "jest",
     "test_watch": "jest --watchAll"
