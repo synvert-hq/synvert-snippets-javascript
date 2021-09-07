@@ -1,7 +1,7 @@
-const fs = require('fs')
-const mock = require('mock-fs')
-const Synvert = require("synvert-core")
-require('../../lib/javascript/prefer-class-properties')
+const fs = require("fs");
+const mock = require("mock-fs");
+const Synvert = require("synvert-core");
+require("../../lib/javascript/prefer-class-properties");
 
 describe("Prefer class properties", () => {
   const input = `
@@ -20,7 +20,7 @@ describe("Prefer class properties", () => {
         return <button onClick={this.handleClick}>Click Me!</button>;
       }
     }
-  `
+  `;
   const output = `
     class Button extends Component {
       constructor(props) {
@@ -37,17 +37,17 @@ describe("Prefer class properties", () => {
         return <button onClick={this.handleClick}>Click Me!</button>;
       }
     }
-  `
+  `;
   beforeEach(() => {
-    mock({ 'code.jsx': input })
-  })
+    mock({ "code.jsx": input });
+  });
   afterEach(() => {
-    mock.restore()
-  })
+    mock.restore();
+  });
 
   test("convert", () => {
-    const rewriter = Synvert.Rewriter.fetch('javascript', 'preferClassProperties')
-    rewriter.process()
-    expect(fs.readFileSync('code.jsx', 'utf-8')).toEqual(output)
-  })
-})
+    const rewriter = Synvert.Rewriter.fetch("javascript", "preferClassProperties");
+    rewriter.process();
+    expect(fs.readFileSync("code.jsx", "utf-8")).toEqual(output);
+  });
+});

@@ -1,7 +1,7 @@
-const fs = require('fs')
-const mock = require('mock-fs')
-const Synvert = require("synvert-core")
-require('../../lib/javascript/unquote-properties')
+const fs = require("fs");
+const mock = require("mock-fs");
+const Synvert = require("synvert-core");
+require("../../lib/javascript/unquote-properties");
 
 describe("Unquote properties", () => {
   const input = `
@@ -21,7 +21,7 @@ describe("Unquote properties", () => {
       [Math.random()]: 13,
       ['quoted computed prop']: 14,
     };
-  `
+  `;
   const output = `
     var x = {
       quotedProp: 1,
@@ -39,17 +39,17 @@ describe("Unquote properties", () => {
       [Math.random()]: 13,
       ['quoted computed prop']: 14,
     };
-  `
+  `;
   beforeEach(() => {
-    mock({ 'code.js': input })
-  })
+    mock({ "code.js": input });
+  });
   afterEach(() => {
-    mock.restore()
-  })
+    mock.restore();
+  });
 
   test("convert", () => {
-    const rewriter = Synvert.Rewriter.fetch('javascript', 'unquoteProperties')
-    rewriter.process()
-    expect(fs.readFileSync('code.js', 'utf-8')).toEqual(output)
-  })
-})
+    const rewriter = Synvert.Rewriter.fetch("javascript", "unquoteProperties");
+    rewriter.process();
+    expect(fs.readFileSync("code.js", "utf-8")).toEqual(output);
+  });
+});
