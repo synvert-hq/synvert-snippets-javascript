@@ -1,7 +1,7 @@
-const fs = require('fs')
-const mock = require('mock-fs')
-const Synvert = require("synvert-core")
-require('../../lib/javascript/trailing-comma')
+const fs = require("fs");
+const mock = require("mock-fs");
+const Synvert = require("synvert-core");
+require("../../lib/javascript/trailing-comma");
 
 describe("Trailing Comma", () => {
   const input = `
@@ -24,7 +24,7 @@ describe("Trailing Comma", () => {
     test({
       test: 'test'
     });
-  `
+  `;
   const output = `
     const object = {
       hello: 'hello',
@@ -45,17 +45,17 @@ describe("Trailing Comma", () => {
     test({
       test: 'test',
     });
-  `
+  `;
   beforeEach(() => {
-    mock({ 'code.js': input })
-  })
+    mock({ "code.js": input });
+  });
   afterEach(() => {
-    mock.restore()
-  })
+    mock.restore();
+  });
 
   test("convert", () => {
-    const rewriter = Synvert.Rewriter.fetch('javascript', 'trailingComma')
-    rewriter.process()
-    expect(fs.readFileSync('code.js', 'utf-8')).toEqual(output)
-  })
-})
+    const rewriter = Synvert.Rewriter.fetch("javascript", "trailingComma");
+    rewriter.process();
+    expect(fs.readFileSync("code.js", "utf-8")).toEqual(output);
+  });
+});
