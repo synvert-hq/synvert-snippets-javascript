@@ -1,7 +1,5 @@
-const fs = require("fs");
-const mock = require("mock-fs");
-const Synvert = require("synvert-core");
 require("../../lib/javascript/prefer-class-properties");
+const { assertConvert } = require('../utils');
 
 describe("Prefer class properties", () => {
   const input = `
@@ -21,6 +19,7 @@ describe("Prefer class properties", () => {
       }
     }
   `;
+
   const output = `
     class Button extends Component {
       constructor(props) {
@@ -38,16 +37,11 @@ describe("Prefer class properties", () => {
       }
     }
   `;
-  beforeEach(() => {
-    mock({ "code.jsx": input });
-  });
-  afterEach(() => {
-    mock.restore();
-  });
 
-  test("convert", () => {
-    const rewriter = Synvert.Rewriter.fetch("javascript", "preferClassProperties");
-    rewriter.process();
-    expect(fs.readFileSync("code.jsx", "utf-8")).toEqual(output);
+  assertConvert({
+    input,
+    output,
+    path: "code.jsx",
+    snippet: "javascript/preferClassProperties"
   });
 });
