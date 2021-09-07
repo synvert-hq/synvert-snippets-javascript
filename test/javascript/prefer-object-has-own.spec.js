@@ -1,5 +1,5 @@
 require("../../lib/javascript/prefer-object-has-own");
-const { assertConvert } = require('../utils');
+const { assertConvert } = require("../utils");
 
 describe("Prefer Object hasOwn", () => {
   const input = `
@@ -13,6 +13,6 @@ describe("Prefer Object hasOwn", () => {
   assertConvert({
     input,
     output,
-    snippet: "javascript/preferObjectHasOwn"
+    snippet: "javascript/preferObjectHasOwn",
   });
 });

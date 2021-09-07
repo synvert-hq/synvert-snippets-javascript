@@ -1,5 +1,5 @@
 require("../../lib/javascript/prefer-class-properties");
-const { assertConvert } = require('../utils');
+const { assertConvert } = require("../utils");
 
 describe("Prefer class properties", () => {
   const input = `
@@ -42,6 +42,6 @@ describe("Prefer class properties", () => {
     input,
     output,
     path: "code.jsx",
-    snippet: "javascript/preferClassProperties"
+    snippet: "javascript/preferClassProperties",
   });
 });
