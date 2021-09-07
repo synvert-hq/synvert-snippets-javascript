@@ -25,7 +25,6 @@ describe("Prefer class properties", () => {
       constructor(props) {
         super(props);
         this.state = { clicked: false };
-        this.handleClick = this.handleClick.bind(this);
       }
 
       handleClick = () => {
