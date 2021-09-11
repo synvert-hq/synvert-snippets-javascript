@@ -7,12 +7,20 @@ describe("Prefer react class properties", () => {
     class Button extends Component {
       constructor(props) {
         super(props);
-        this.state = { clicked: false };
+        this.state = {
+          clicked: false,
+          submitted: false
+        };
         this.handleClick = this.handleClick.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
       }
 
       handleClick() {
         this.setState({ clicked: true });
+      }
+
+      handleSubmit() {
+        this.setState({ submitted: true });
       }
 
       render() {
@@ -23,10 +31,17 @@ describe("Prefer react class properties", () => {
 
   const output = `
     class Button extends Component {
-      state = { clicked: false };
+      state = {
+        clicked: false,
+        submitted: false
+      };
 
       handleClick = () => {
         this.setState({ clicked: true });
+      }
+
+      handleSubmit = () => {
+        this.setState({ submitted: true });
       }
 
       render() {
