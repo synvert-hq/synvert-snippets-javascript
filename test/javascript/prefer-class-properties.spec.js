@@ -2,45 +2,91 @@ require("../../lib/javascript/prefer-class-properties");
 const { assertConvert } = require("../utils");
 
 describe("Prefer class properties", () => {
-  const input = `
-    class Button extends Component {
-      constructor(props) {
-        super(props);
-        this.state = { clicked: false };
-        this.handleClick = this.handleClick.bind(this);
-      }
+  describe("normal", () => {
+    const input = `
+      class Button extends Component {
+        constructor(props) {
+          super(props);
+          this.state = { clicked: false };
+          this.handleClick = this.handleClick.bind(this);
+        }
 
-      handleClick() {
-        this.setState({ clicked: true });
-      }
+        handleClick() {
+          this.setState({ clicked: true });
+        }
 
-      render() {
-        return <button onClick={this.handleClick}>Click Me!</button>;
+        render() {
+          return <button onClick={this.handleClick}>Click Me!</button>;
+        }
       }
-    }
-  `;
+    `;
 
-  const output = `
-    class Button extends Component {
-      constructor(props) {
-        super(props);
-        this.state = { clicked: false };
+    const output = `
+      class Button extends Component {
+        constructor(props) {
+          super(props);
+          this.state = { clicked: false };
+        }
+
+        handleClick = () => {
+          this.setState({ clicked: true });
+        }
+
+        render() {
+          return <button onClick={this.handleClick}>Click Me!</button>;
+        }
       }
+    `;
 
-      handleClick = () => {
-        this.setState({ clicked: true });
+    assertConvert({
+      input,
+      output,
+      path: "code.jsx",
+      snippet: "javascript/preferClassProperties",
+    });
+  })
+
+  describe("async", () => {
+    const input = `
+      class Button extends Component {
+        constructor(props) {
+          super(props);
+          this.state = { clicked: false };
+          this.handleClick = this.handleClick.bind(this);
+        }
+
+        async handleClick() {
+          this.setState({ clicked: true });
+        }
+
+        render() {
+          return <button onClick={this.handleClick}>Click Me!</button>;
+        }
       }
+    `;
 
-      render() {
-        return <button onClick={this.handleClick}>Click Me!</button>;
+    const output = `
+      class Button extends Component {
+        constructor(props) {
+          super(props);
+          this.state = { clicked: false };
+        }
+
+        handleClick = async () => {
+          this.setState({ clicked: true });
+        }
+
+        render() {
+          return <button onClick={this.handleClick}>Click Me!</button>;
+        }
       }
-    }
-  `;
+    `;
 
-  assertConvert({
-    input,
-    output,
-    path: "code.jsx",
-    snippet: "javascript/preferClassProperties",
+    assertConvert({
+      input,
+      output,
+      path: "code.jsx",
+      snippet: "javascript/preferClassProperties",
+    });
   });
 });
