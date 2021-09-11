@@ -44,7 +44,7 @@ describe("Prefer class properties", () => {
       path: "code.jsx",
       snippet: "javascript/preferClassProperties",
     });
-  })
+  });
 
   describe("async", () => {
     const input = `
