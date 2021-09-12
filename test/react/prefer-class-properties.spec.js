@@ -1,4 +1,5 @@
 require("../../lib/javascript/prefer-class-properties");
+require("../../lib/javascript/no-useless-constructor");
 require("../../lib/react/prefer-class-properties");
 const { assertConvert } = require("../utils");
 
