@@ -13,6 +13,12 @@ describe("No Useless Constructor", () => {
         super(...args);
       }
     }
+
+    class Button extends Component {
+      constructor(props) {
+        super(props)
+      }
+    }
   `;
 
   const output = `
@@ -20,6 +26,9 @@ describe("No Useless Constructor", () => {
     }
 
     class B extends A {
+    }
+
+    class Button extends Component {
     }
   `;
 
