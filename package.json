@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/xinminlabs/synvert-snippets-javascript#readme",
   "dependencies": {
-    "synvert-core": "^0.20.1"
+    "synvert-core": "^0.21.1"
   },
   "devDependencies": {
     "jest": "^27.0.6",
