@@ -9,7 +9,7 @@ describe("javascript/prefer-import-export", () => {
 
     module.exports = Rewriter
     module.exports = { Rewriter, Configuration }
-  `
+  `;
   output = `
     import fs from 'fs'
     import path from 'path'
@@ -17,7 +17,7 @@ describe("javascript/prefer-import-export", () => {
 
     export default Rewriter
     export { Rewriter, Configuration }
-  `
+  `;
   assertConvert({
     input,
     output,
