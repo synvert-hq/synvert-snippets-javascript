@@ -3,7 +3,7 @@ require("../../lib/javascript/no-useless-constructor");
 require("../../lib/react/prefer-class-properties");
 const { assertConvert } = require("../utils");
 
-describe("Prefer react class properties", () => {
+describe("react/prefer-react-class-properties", () => {
   const input = `
     class Button extends Component {
       constructor(props) {
@@ -55,6 +55,6 @@ describe("Prefer react class properties", () => {
     input,
     output,
     path: "code.jsx",
-    snippet: "react/preferClassProperties",
+    snippet: "react/prefer-class-properties",
   });
 });

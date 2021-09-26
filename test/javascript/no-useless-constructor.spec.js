@@ -1,7 +1,7 @@
 require("../../lib/javascript/no-useless-constructor");
 const { assertConvert } = require("../utils");
 
-describe("No Useless Constructor", () => {
+describe("javascript/no-useless-constructor", () => {
   const input = `
     class A {
       constructor () {
@@ -36,6 +36,6 @@ describe("No Useless Constructor", () => {
     input,
     output,
     path: "code.js",
-    snippet: "javascript/noUselessConstructor",
+    snippet: "javascript/no-useless-constructor",
   });
 });

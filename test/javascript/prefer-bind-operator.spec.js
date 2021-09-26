@@ -1,7 +1,7 @@
 require("../../lib/javascript/prefer-bind-operator");
 const { assertConvert } = require("../utils");
 
-describe("Prefer bind Operator", () => {
+describe("javascript/prefer-bind-operator", () => {
   const input = `
     let x = this.foo.bind(this);
   `;
@@ -13,6 +13,6 @@ describe("Prefer bind Operator", () => {
   assertConvert({
     input,
     output,
-    snippet: "javascript/preferBindOperator",
+    snippet: "javascript/prefer-bind-operator",
   });
 });

@@ -1,7 +1,7 @@
 require("../../lib/javascript/prefer-import-export");
 const { assertConvert } = require("../utils");
 
-describe("Prefer import export", () => {
+describe("javascript/prefer-import-export", () => {
   input = `
     const fs = require('fs'),
           path = require('path')
@@ -21,6 +21,6 @@ describe("Prefer import export", () => {
   assertConvert({
     input,
     output,
-    snippet: "javascript/preferImportExport",
+    snippet: "javascript/prefer-import-export",
   });
 });

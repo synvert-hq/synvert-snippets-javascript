@@ -1,7 +1,7 @@
 require("../../lib/javascript/trailing-comma");
 const { assertConvert } = require("../utils");
 
-describe("Trailing Comma", () => {
+describe("javascrip/trailing-comma", () => {
   const input = `
     const object = {
       hello: 'hello',
@@ -49,6 +49,6 @@ describe("Trailing Comma", () => {
   assertConvert({
     input,
     output,
-    snippet: "javascript/trailingComma",
+    snippet: "javascript/trailing-comma",
   });
 });

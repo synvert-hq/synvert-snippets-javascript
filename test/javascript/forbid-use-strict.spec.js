@@ -1,12 +1,12 @@
 require("../../lib/javascript/forbid-use-strict");
 const { assertConvert } = require("../utils");
 
-describe("Forbid use strict", () => {
+describe("javascript/forbid-use-strict", () => {
   describe("exists", () => {
     assertConvert({
       input: `'use strict'\nfoobar`,
       output: `foobar`,
-      snippet: "javascript/forbidUseStrict",
+      snippet: "javascript/forbid-use-strict",
     });
   });
 
@@ -14,7 +14,7 @@ describe("Forbid use strict", () => {
     assertConvert({
       input: `foobar`,
       output: `foobar`,
-      snippet: "javascript/forbidUseStrict",
+      snippet: "javascript/forbid-use-strict",
     });
   });
 });
