@@ -160,4 +160,31 @@ describe("javascript/no-unused-imports", () => {
       snippet: "javascript/no-unused-imports",
     });
   });
+
+  describe("specifier is used in jsx element", () => {
+    assertConvert({
+      input: `
+        import React from "react-bootstrap";
+        import { Button } from "react-bootstrap";
+
+        class Test extends React.Component {
+          render() {
+            return <Button />
+          }
+        }
+      `,
+      output: `
+        import React from "react-bootstrap";
+        import { Button } from "react-bootstrap";
+
+        class Test extends React.Component {
+          render() {
+            return <Button />
+          }
+        }
+      `,
+      snippet: "javascript/no-unused-imports",
+      path: "code.jsx",
+    });
+  });
 });
