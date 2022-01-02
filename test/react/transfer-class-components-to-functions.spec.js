@@ -2,7 +2,7 @@ require("../../lib/react/transfer-class-components-to-functions");
 const { assertConvert } = require("../utils");
 
 describe("react/transfer-class-components-to-functions", () => {
-  describe('simple compoment', () => {
+  describe("simple compoment", () => {
     const input = `
       class MyComponent extends React.Component {
         render() {
@@ -25,7 +25,7 @@ describe("react/transfer-class-components-to-functions", () => {
     });
   });
 
-  describe('this.props', () => {
+  describe("this.props", () => {
     const input = `
       class MyComponent extends React.Component {
         render() {
@@ -48,7 +48,7 @@ describe("react/transfer-class-components-to-functions", () => {
     });
   });
 
-  describe('this.state', () => {
+  describe("this.state", () => {
     const input = `
       class MyComponent extends React.Component {
         state = { count: 0 };
