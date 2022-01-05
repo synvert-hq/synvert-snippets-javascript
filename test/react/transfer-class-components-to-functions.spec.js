@@ -4,7 +4,7 @@ const { assertConvert } = require("../utils");
 describe("react/transfer-class-components-to-functions", () => {
   describe('simple compoment', () => {
     const input = `
-      class MyComponent extends React.Component {
+      class MyComponent extends Component {
         render() {
           return <p>It works!</p>;
         }
@@ -27,7 +27,7 @@ describe("react/transfer-class-components-to-functions", () => {
 
   describe('this.props', () => {
     const input = `
-      class MyComponent extends React.Component {
+      class MyComponent extends Component {
         render() {
           return <p>Hi, {this.props.name}</p>;
         }
@@ -50,7 +50,7 @@ describe("react/transfer-class-components-to-functions", () => {
 
   describe('this.state', () => {
     const input = `
-      class MyComponent extends React.Component {
+      class MyComponent extends Component {
         state = { count: 0 };
 
         render() {
@@ -66,12 +66,48 @@ describe("react/transfer-class-components-to-functions", () => {
     const output = `
       const MyComponent = (props) => {
         const [count, setCount] = useState(0);
-
         const reset = () => setCount(0);
         const inc = () => setCount(count + 1);
         return <p onClick={inc}>
           Total: {count}
         </p>;
+      }
+    `;
+
+    assertConvert({
+      input,
+      output,
+      path: "code.jsx",
+      snippet: "react/transfer-class-components-to-functions",
+    });
+  });
+
+  describe('other functions', () => {
+    const input = `
+      class MyComponent extends Component {
+        state = { hover: false };
+
+        mouseEnterHandler() {
+          this.setState({ hover: true });
+        }
+
+        mouseLeaveHandler = () => {
+          this.setState({ hover: false });
+        }
+      }
+    `;
+
+    const output = `
+      const MyComponent = (props) => {
+        const [hover, setHover] = useState(false);
+
+        const mouseEnterHandler = () => {
+          setHover(true);
+        }
+
+        const mouseLeaveHandler = () => {
+          setHover(false);
+        }
       }
     `;
 
