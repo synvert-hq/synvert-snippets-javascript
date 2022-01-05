@@ -4,7 +4,7 @@
   "description": "synvert javascript snippets",
   "scripts": {
     "test": "jest",
-    "test_watch": "jest --watchAll"
+    "test_watch": "jest --watch"
   },
   "repository": {
     "type": "git",
