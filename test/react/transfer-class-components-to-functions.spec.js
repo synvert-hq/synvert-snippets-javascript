@@ -4,6 +4,7 @@ const { assertConvert } = require("../utils");
 describe("react/transfer-class-components-to-functions", () => {
   describe('simple compoment', () => {
     const input = `
+      import React, { Component } from 'react';
       class MyComponent extends Component {
         render() {
           return <p>It works!</p>;
@@ -12,6 +13,7 @@ describe("react/transfer-class-components-to-functions", () => {
     `;
 
     const output = `
+      import React from 'react';
       const MyComponent = (props) => {
         return <p>It works!</p>;
       }
@@ -27,6 +29,7 @@ describe("react/transfer-class-components-to-functions", () => {
 
   describe('this.props', () => {
     const input = `
+      import React, { Component } from 'react';
       class MyComponent extends Component {
         render() {
           return <p>Hi, {this.props.name}</p>;
@@ -35,6 +38,7 @@ describe("react/transfer-class-components-to-functions", () => {
     `;
 
     const output = `
+      import React from 'react';
       const MyComponent = (props) => {
         return <p>Hi, {props.name}</p>;
       }
@@ -48,8 +52,10 @@ describe("react/transfer-class-components-to-functions", () => {
     });
   });
 
-  describe('this.state', () => {
+  describe('useState', () => {
     const input = `
+      import React, { Component } from 'react';
+
       class MyComponent extends Component {
         state = { count: 0 };
 
@@ -64,8 +70,11 @@ describe("react/transfer-class-components-to-functions", () => {
     `;
 
     const output = `
+      import React, { useState } from 'react';
+
       const MyComponent = (props) => {
         const [count, setCount] = useState(0);
+
         const reset = () => setCount(0);
         const inc = () => setCount(count + 1);
         return <p onClick={inc}>
@@ -84,6 +93,8 @@ describe("react/transfer-class-components-to-functions", () => {
 
   describe('other functions', () => {
     const input = `
+      import React, { Component } from 'react';
+
       class MyComponent extends Component {
         state = { hover: false };
 
@@ -94,10 +105,18 @@ describe("react/transfer-class-components-to-functions", () => {
         mouseLeaveHandler = () => {
           this.setState({ hover: false });
         }
+
+        render() {
+          return (
+            <p onmouseover={this.mouseEnterHandler} onmouseleave={this.mouseLeaveHandler}>Test</p>
+          );
+        }
       }
     `;
 
     const output = `
+      import React, { useState } from 'react';
+
       const MyComponent = (props) => {
         const [hover, setHover] = useState(false);
 
@@ -108,6 +127,10 @@ describe("react/transfer-class-components-to-functions", () => {
         const mouseLeaveHandler = () => {
           setHover(false);
         }
+
+        return (
+          <p onmouseover={mouseEnterHandler} onmouseleave={mouseLeaveHandler}>Test</p>
+        );
       }
     `;
 
