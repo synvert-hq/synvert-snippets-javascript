@@ -14,7 +14,7 @@ describe("react/transfer-class-components-to-functions", () => {
 
     const output = `
       import React from 'react';
-      const MyComponent = (props) => {
+      const MyComponent = () => {
         return <p>It works!</p>;
       }
     `;
@@ -39,8 +39,34 @@ describe("react/transfer-class-components-to-functions", () => {
 
     const output = `
       import React from 'react';
-      const MyComponent = (props) => {
-        return <p>Hi, {props.name}</p>;
+      const MyComponent = ({ name }) => {
+        return <p>Hi, {name}</p>;
+      }
+    `;
+
+    assertConvert({
+      input,
+      output,
+      path: "code.jsx",
+      snippet: "react/transfer-class-components-to-functions",
+    });
+  });
+
+  describe('destruct this.props', () => {
+    const input = `
+      import React, { Component } from 'react';
+      class MyComponent extends Component {
+        render() {
+          const { name } = this.props;
+          return <p>Hi, {name}</p>;
+        }
+      }
+    `;
+
+    const output = `
+      import React from 'react';
+      const MyComponent = ({ name }) => {
+        return <p>Hi, {name}</p>;
       }
     `;
 
@@ -72,7 +98,7 @@ describe("react/transfer-class-components-to-functions", () => {
     const output = `
       import React, { useState } from 'react';
 
-      const MyComponent = (props) => {
+      const MyComponent = () => {
         const [count, setCount] = useState(0);
 
         const reset = () => setCount(0);
@@ -117,7 +143,7 @@ describe("react/transfer-class-components-to-functions", () => {
     const output = `
       import React, { useState } from 'react';
 
-      const MyComponent = (props) => {
+      const MyComponent = () => {
         const [hover, setHover] = useState(false);
 
         const mouseEnterHandler = () => {
