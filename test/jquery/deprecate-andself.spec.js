@@ -1,7 +1,7 @@
-require("../../lib/jquery/convert-andself-to-addback");
+require("../../lib/jquery/deprecate-andself");
 const { assertConvert } = require("../utils");
 
-describe("jquery/convert-andself-to-addback", () => {
+describe("jquery/deprecate-andself", () => {
   assertConvert({
     input: `
       $(e.target).parents("#userMenu").andSelf()
@@ -9,6 +9,6 @@ describe("jquery/convert-andself-to-addback", () => {
     output: `
       $(e.target).parents("#userMenu").addBack()
     `,
-    snippet: "jquery/convert-andself-to-addback",
+    snippet: "jquery/deprecate-andself",
   });
 });
