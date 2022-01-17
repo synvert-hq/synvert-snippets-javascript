@@ -5,10 +5,12 @@ describe("jquery/quote-attribute-selector-with-number-sign", () => {
   assertConvert({
     input: `
       $('a[href=#main]')
+      $("a[href=#main]")
       $('.active')
     `,
     output: `
       $('a[href="#main"]')
+      $("a[href='#main']")
       $('.active')
     `,
     snippet: "jquery/quote-attribute-selector-with-number-sign",
