@@ -13,22 +13,12 @@ describe("jquery/prop-boolean-properties", () => {
       $this.attr('disabled', false);
       $this.attr('readonly', false);
       $this.attr('selected', false);
-
-      $this.removeAttr('checked');
-      $this.removeAttr('disabled');
-      $this.removeAttr('readonly');
-      $this.removeAttr('selected');
     `,
     output: `
       $this.prop('checked', true);
       $this.prop('disabled', true);
       $this.prop('readonly', true);
       $this.prop('selected', true);
-
-      $this.prop('checked', false);
-      $this.prop('disabled', false);
-      $this.prop('readonly', false);
-      $this.prop('selected', false);
 
       $this.prop('checked', false);
       $this.prop('disabled', false);
