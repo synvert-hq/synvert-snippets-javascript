@@ -9,14 +9,19 @@ describe("javascript/prefer-class-properties", () => {
           super(props);
           this.state = { clicked: false };
           this.handleClick = this.handleClick.bind(this);
+          this.handleSubmit = this.handleSubmit.bind(this);
         }
 
         handleClick() {
           this.setState({ clicked: true });
         }
 
-        render() {
-          return <button onClick={this.handleClick}>Click Me!</button>;
+        handleSubmit() {
+          this.setState({ submitted: true });
+        }
+
+        handleChange() {
+          this.setState({ changed: true });
         }
       }
     `;
@@ -32,8 +37,12 @@ describe("javascript/prefer-class-properties", () => {
           this.setState({ clicked: true });
         }
 
-        render() {
-          return <button onClick={this.handleClick}>Click Me!</button>;
+        handleSubmit = () => {
+          this.setState({ submitted: true });
+        }
+
+        handleChange = () => {
+          this.setState({ changed: true });
         }
       }
     `;
@@ -48,9 +57,8 @@ describe("javascript/prefer-class-properties", () => {
 
   describe("async", () => {
     const input = `
-      class Button extends Component {
+      class Button {
         constructor(props) {
-          super(props);
           this.state = { clicked: false };
           this.handleClick = this.handleClick.bind(this);
         }
@@ -58,26 +66,17 @@ describe("javascript/prefer-class-properties", () => {
         async handleClick() {
           this.setState({ clicked: true });
         }
-
-        render() {
-          return <button onClick={this.handleClick}>Click Me!</button>;
-        }
       }
     `;
 
     const output = `
-      class Button extends Component {
+      class Button {
         constructor(props) {
-          super(props);
           this.state = { clicked: false };
         }
 
         handleClick = async () => {
           this.setState({ clicked: true });
-        }
-
-        render() {
-          return <button onClick={this.handleClick}>Click Me!</button>;
         }
       }
     `;

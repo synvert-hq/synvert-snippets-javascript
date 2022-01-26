@@ -16,12 +16,20 @@ describe("react/prefer-react-class-properties", () => {
         this.handleSubmit = this.handleSubmit.bind(this);
       }
 
+      componentDidMount() {
+        console.log('did mount');
+      }
+
       handleClick() {
         this.setState({ clicked: true });
       }
 
       handleSubmit() {
         this.setState({ submitted: true });
+      }
+
+      handleChange() {
+        this.setState({ changed: true });
       }
 
       render() {
@@ -37,12 +45,20 @@ describe("react/prefer-react-class-properties", () => {
         submitted: false
       };
 
+      componentDidMount() {
+        console.log('did mount');
+      }
+
       handleClick = () => {
         this.setState({ clicked: true });
       }
 
       handleSubmit = () => {
         this.setState({ submitted: true });
+      }
+
+      handleChange = () => {
+        this.setState({ changed: true });
       }
 
       render() {
