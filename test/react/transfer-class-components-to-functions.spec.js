@@ -2,7 +2,7 @@ require("../../lib/react/transfer-class-components-to-functions");
 const { assertConvert } = require("../utils");
 
 describe("react/transfer-class-components-to-functions", () => {
-  describe('simple compoment', () => {
+  describe("simple compoment", () => {
     const input = `
       import React, { Component } from 'react';
       class MyComponent extends Component {
@@ -27,7 +27,7 @@ describe("react/transfer-class-components-to-functions", () => {
     });
   });
 
-  describe('this.props', () => {
+  describe("this.props", () => {
     const input = `
       import React, { Component } from 'react';
       class MyComponent extends Component {
@@ -52,7 +52,7 @@ describe("react/transfer-class-components-to-functions", () => {
     });
   });
 
-  describe('destruct this.props', () => {
+  describe("destruct this.props", () => {
     const input = `
       import React, { Component } from 'react';
       class MyComponent extends Component {
@@ -78,7 +78,7 @@ describe("react/transfer-class-components-to-functions", () => {
     });
   });
 
-  describe('useState', () => {
+  describe("useState", () => {
     const input = `
       import React, { Component } from 'react';
 
@@ -117,7 +117,7 @@ describe("react/transfer-class-components-to-functions", () => {
     });
   });
 
-  describe('comment lifecycle methods', () => {
+  describe("comment lifecycle methods", () => {
     const input = `
       import React, { Component } from 'react';
 
