@@ -1,7 +1,7 @@
 require("../../lib/javascript/object-property-value-shorthand");
 const { assertConvert } = require("../utils");
 
-const snippet = "javascript/object-property-value-shorthand"
+const snippet = "javascript/object-property-value-shorthand";
 
 describe(snippet, () => {
   const input = `
