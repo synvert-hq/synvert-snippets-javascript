@@ -117,46 +117,39 @@ describe("react/transfer-class-components-to-functions", () => {
     });
   });
 
-  describe('other functions', () => {
+  describe('comment lifecycle methods', () => {
     const input = `
       import React, { Component } from 'react';
 
       class MyComponent extends Component {
-        state = { hover: false };
-
-        mouseEnterHandler() {
-          this.setState({ hover: true });
+        componentDidMount() {
+          console.log('component did mount')
         }
 
-        mouseLeaveHandler = () => {
-          this.setState({ hover: false });
+        componentDidUpdate() {
+          console.log('component did update')
         }
 
-        render() {
-          return (
-            <p onmouseover={this.mouseEnterHandler} onmouseleave={this.mouseLeaveHandler}>Test</p>
-          );
+        componentWillUnmount() {
+          console.log('component will unmount')
         }
       }
     `;
 
     const output = `
-      import React, { useState } from 'react';
+      import React from 'react';
 
       const MyComponent = () => {
-        const [hover, setHover] = useState(false);
-
-        const mouseEnterHandler = () => {
-          setHover(true);
-        }
-
-        const mouseLeaveHandler = () => {
-          setHover(false);
-        }
-
-        return (
-          <p onmouseover={mouseEnterHandler} onmouseleave={mouseLeaveHandler}>Test</p>
-        );
+        // Synvert TODO: convert lifecycle methods to useEffect
+        // componentDidMount() {
+        //   console.log('component did mount')
+        // }
+        // componentDidUpdate() {
+        //   console.log('component did update')
+        // }
+        // componentWillUnmount() {
+        //   console.log('component will unmount')
+        // }
       }
     `;
 
