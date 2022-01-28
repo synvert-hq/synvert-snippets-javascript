@@ -117,6 +117,42 @@ describe("react/transfer-class-components-to-functions", () => {
     });
   });
 
+  describe('destruct this.state', () => {
+    const input = `
+      import React, { Component } from 'react';
+
+      class MyComponent extends Component {
+        state = { count: 0 };
+
+        render() {
+          const { count } = this.state;
+          return <p>
+            Total: {count}
+          </p>;
+        }
+      }
+    `;
+
+    const output = `
+      import React, { useState } from 'react';
+
+      const MyComponent = () => {
+        const [count, setCount] = useState(0);
+
+        return <p>
+          Total: {count}
+        </p>;
+      }
+    `;
+
+    assertConvert({
+      input,
+      output,
+      path: "code.jsx",
+      snippet: "react/transfer-class-components-to-functions",
+    });
+  });
+
   describe('comment lifecycle methods', () => {
     const input = `
       import React, { Component } from 'react';
