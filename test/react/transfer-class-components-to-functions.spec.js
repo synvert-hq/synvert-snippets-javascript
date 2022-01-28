@@ -173,10 +173,10 @@ describe("react/transfer-class-components-to-functions", () => {
     `;
 
     const output = `
-      import React from 'react';
+      import React, { useEffect } from 'react';
 
       const MyComponent = () => {
-        // Synvert TODO: convert lifecycle methods to useEffect
+        // Synvert TODO: convert lifecycle methods to useEffect by yourself
         // componentDidMount() {
         //   console.log('component did mount')
         // }
