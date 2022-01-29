@@ -52,21 +52,29 @@ describe("react/transfer-class-components-to-functions", () => {
     });
   });
 
-  describe('destruct this.props', () => {
+  describe('conflict prop name', () => {
     const input = `
       import React, { Component } from 'react';
       class MyComponent extends Component {
+        handleClick = (e) => {
+          this.props.handleClick(e);
+        }
+
         render() {
           const { name } = this.props;
-          return <p>Hi, {name}</p>;
+          return <button onClick={this.handleClick}>Hi, {name}</button>;
         }
       }
     `;
 
     const output = `
       import React from 'react';
-      const MyComponent = ({ name }) => {
-        return <p>Hi, {name}</p>;
+      const MyComponent = ({ name, ...props }) => {
+        const handleClick = (e) => {
+          props.handleClick(e);
+        }
+
+        return <button onClick={handleClick}>Hi, {name}</button>;
       }
     `;
 
