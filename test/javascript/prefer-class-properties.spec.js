@@ -10,6 +10,12 @@ describe("javascript/prefer-class-properties", () => {
           this.state = { clicked: false };
           this.handleClick = this.handleClick.bind(this);
           this.handleSubmit = this.handleSubmit.bind(this);
+          this.handleMouseOver = function () {
+            console.log('handle mouse over')
+          }
+          this.handleMouseOut = () => {
+            console.log('handle mouse out')
+          }
         }
 
         handleClick() {
@@ -31,6 +37,14 @@ describe("javascript/prefer-class-properties", () => {
         constructor(props) {
           super(props);
           this.state = { clicked: false };
+        }
+
+        handleMouseOver = () => {
+          console.log('handle mouse over')
+        }
+
+        handleMouseOut = () => {
+          console.log('handle mouse out')
         }
 
         handleClick = () => {
