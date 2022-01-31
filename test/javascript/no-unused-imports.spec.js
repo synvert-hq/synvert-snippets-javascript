@@ -1,7 +1,8 @@
-require("../../lib/javascript/no-unused-imports");
+const snippet = "javascript/no-unused-imports";
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("javascript/no-unused-imports", () => {
+describe(snippet, () => {
   describe("all valid", () => {
     assertConvert({
       input: `
@@ -16,7 +17,7 @@ describe("javascript/no-unused-imports", () => {
         import y from "package";
         const c = a() + b + x() + y();
       `,
-      snippet: "javascript/no-unused-imports",
+      snippet,
     });
   });
 
@@ -34,7 +35,7 @@ describe("javascript/no-unused-imports", () => {
         import y from "package";
         const c = b(x, y);
       `,
-      snippet: "javascript/no-unused-imports",
+      snippet,
     });
   });
 
@@ -56,7 +57,7 @@ describe("javascript/no-unused-imports", () => {
          */
         const c = a(y);
       `,
-      snippet: "javascript/no-unused-imports",
+      snippet,
     });
   });
 
@@ -73,7 +74,7 @@ describe("javascript/no-unused-imports", () => {
         const c = 4;
         console.log(y);
       `,
-      snippet: "javascript/no-unused-imports",
+      snippet,
     });
   });
 
@@ -87,7 +88,7 @@ describe("javascript/no-unused-imports", () => {
         import c from "./utils";
         console.log(c);
       `,
-      snippet: "javascript/no-unused-imports",
+      snippet,
     });
   });
 
@@ -102,7 +103,7 @@ describe("javascript/no-unused-imports", () => {
         import { a, b } from "./utils";
         const c = a() + b;
       `,
-      snippet: "javascript/no-unused-imports",
+      snippet,
     });
   });
 
@@ -116,7 +117,7 @@ describe("javascript/no-unused-imports", () => {
         import { a, b } from "./utils";
         const c = a() + b;
       `,
-      snippet: "javascript/no-unused-imports",
+      snippet,
     });
   });
 
@@ -130,7 +131,7 @@ describe("javascript/no-unused-imports", () => {
         import * as p from "package";
         p.test();
       `,
-      snippet: "javascript/no-unused-imports",
+      snippet,
     });
   });
 
@@ -143,7 +144,7 @@ describe("javascript/no-unused-imports", () => {
       output: `
         console.log("p");
       `,
-      snippet: "javascript/no-unused-imports",
+      snippet,
     });
   });
 
@@ -157,7 +158,7 @@ describe("javascript/no-unused-imports", () => {
         import y from "package";
         console.log(y);
       `,
-      snippet: "javascript/no-unused-imports",
+      snippet,
     });
   });
 
@@ -183,7 +184,7 @@ describe("javascript/no-unused-imports", () => {
           }
         }
       `,
-      snippet: "javascript/no-unused-imports",
+      snippet,
       path: "code.jsx",
     });
   });

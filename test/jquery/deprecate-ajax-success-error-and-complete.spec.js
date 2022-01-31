@@ -1,7 +1,8 @@
-require("../../lib/jquery/deprecate-ajax-success-error-and-complete");
+const snippet = "jquery/deprecate-ajax-success-error-and-complete";
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("jquery/deprecate-ajax-success-error-and-complete", () => {
+describe(snippet, () => {
   assertConvert({
     input: `
       $.ajax({
@@ -27,6 +28,6 @@ describe("jquery/deprecate-ajax-success-error-and-complete", () => {
       })
       .fail(function (jqXHR, textStatus, errorThrown) { errorFunction(); });
     `,
-    snippet: "jquery/deprecate-ajax-success-error-and-complete",
+    snippet,
   });
 });

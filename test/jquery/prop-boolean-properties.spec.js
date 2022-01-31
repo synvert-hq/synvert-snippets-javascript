@@ -1,7 +1,8 @@
-require("../../lib/jquery/prop-boolean-properties");
+const snippet = "jquery/prop-boolean-properties";
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("jquery/prop-boolean-properties", () => {
+describe(snippet, () => {
   assertConvert({
     input: `
       $this.attr('checked', 'checked');
@@ -25,6 +26,6 @@ describe("jquery/prop-boolean-properties", () => {
       $this.prop('readonly', false);
       $this.prop('selected', false);
     `,
-    snippet: "jquery/prop-boolean-properties",
+    snippet,
   });
 });

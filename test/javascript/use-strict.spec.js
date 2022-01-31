@@ -1,12 +1,13 @@
-require("../../lib/javascript/use-strict");
+const snippet = "javascript/use-strict";
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("javascript/use-strict", () => {
+describe(snippet, () => {
   describe("exists", () => {
     assertConvert({
       input: `'use strict'\nfoobar`,
       output: `'use strict'\nfoobar`,
-      snippet: "javascript/use-strict",
+      snippet,
     });
   });
 
@@ -14,7 +15,7 @@ describe("javascript/use-strict", () => {
     assertConvert({
       input: `foobar`,
       output: `'use strict'\nfoobar`,
-      snippet: "javascript/use-strict",
+      snippet,
     });
   });
 });

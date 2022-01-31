@@ -1,7 +1,8 @@
-require("../../lib/javascript/prefer-class-properties");
+const snippet = "javascript/prefer-class-properties";
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("javascript/prefer-class-properties", () => {
+describe(snippet, () => {
   describe("normal", () => {
     const input = `
       class Button extends Component {
@@ -64,8 +65,8 @@ describe("javascript/prefer-class-properties", () => {
     assertConvert({
       input,
       output,
+      snippet,
       path: "code.jsx",
-      snippet: "javascript/prefer-class-properties",
     });
   });
 
@@ -98,8 +99,8 @@ describe("javascript/prefer-class-properties", () => {
     assertConvert({
       input,
       output,
+      snippet,
       path: "code.jsx",
-      snippet: "javascript/prefer-class-properties",
     });
   });
 });

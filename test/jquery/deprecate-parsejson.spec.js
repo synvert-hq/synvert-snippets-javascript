@@ -1,14 +1,11 @@
-require("../../lib/jquery/deprecate-parsejson");
+const snippet = "jquery/deprecate-parsejson";
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("jquery/deprecate-parsejson", () => {
+describe(snippet, () => {
   assertConvert({
-    input: `
-      $.parseJSON(str)
-    `,
-    output: `
-      JSON.parse(str)
-    `,
-    snippet: "jquery/deprecate-parsejson",
+    input: `$.parseJSON(str)`,
+    output: `JSON.parse(str)`,
+    snippet,
   });
 });

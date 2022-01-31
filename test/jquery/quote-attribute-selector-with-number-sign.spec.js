@@ -1,7 +1,8 @@
-require("../../lib/jquery/quote-attribute-selector-with-number-sign");
+const snippet = "jquery/quote-attribute-selector-with-number-sign";
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("jquery/quote-attribute-selector-with-number-sign", () => {
+describe(snippet, () => {
   assertConvert({
     input: `
       $('a[href=#main]')
@@ -13,6 +14,6 @@ describe("jquery/quote-attribute-selector-with-number-sign", () => {
       $("a[href='#main']")
       $('.active')
     `,
-    snippet: "jquery/quote-attribute-selector-with-number-sign",
+    snippet,
   });
 });

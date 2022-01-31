@@ -1,14 +1,11 @@
-require("../../lib/jquery/deprecate-andself");
+const snippet = "jquery/deprecate-andself";
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("jquery/deprecate-andself", () => {
+describe(snippet, () => {
   assertConvert({
-    input: `
-      $(e.target).parents("#userMenu").andSelf()
-    `,
-    output: `
-      $(e.target).parents("#userMenu").addBack()
-    `,
-    snippet: "jquery/deprecate-andself",
+    input: `$(e.target).parents("#userMenu").andSelf()`,
+    output: `$(e.target).parents("#userMenu").addBack()`,
+    snippet
   });
 });

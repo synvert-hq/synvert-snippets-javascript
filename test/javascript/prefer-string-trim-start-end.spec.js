@@ -1,7 +1,8 @@
-require("../../lib/javascript/prefer-string-trim-start-end");
+const snippet = "javascript/prefer-string-trim-start-end";
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("javascript/prefer-string-trim-start-end", () => {
+describe(snippet, () => {
   const input = `
     const foo1 = bar.trimLeft();
     const foo2 = bar.trimRight();
@@ -15,6 +16,6 @@ describe("javascript/prefer-string-trim-start-end", () => {
   assertConvert({
     input,
     output,
-    snippet: "javascript/prefer-string-trim-start-end",
+    snippet,
   });
 });

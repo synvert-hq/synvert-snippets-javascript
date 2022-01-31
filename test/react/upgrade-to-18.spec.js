@@ -17,7 +17,7 @@ describe(snippet, () => {
   assertConvert({
     input,
     output,
-    path: "code.jsx",
     snippet,
+    path: "code.jsx",
   });
 });

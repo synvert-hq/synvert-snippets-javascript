@@ -1,7 +1,8 @@
-require("../../lib/react/short-syntax-fragment");
+const snippet = "react/short-syntax-fragment";
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("react/short-syntax-fragment", () => {
+describe(snippet, () => {
   describe("import default", () => {
     const input = `
       import React, { Fragment } from 'react';
@@ -32,8 +33,8 @@ describe("react/short-syntax-fragment", () => {
     assertConvert({
       input,
       output,
+      snippet,
       path: "code.jsx",
-      snippet: "react/short-syntax-fragment",
     });
   });
 
@@ -67,8 +68,8 @@ describe("react/short-syntax-fragment", () => {
     assertConvert({
       input,
       output,
+      snippet,
       path: "code.jsx",
-      snippet: "react/short-syntax-fragment",
     });
   });
 
@@ -102,8 +103,8 @@ describe("react/short-syntax-fragment", () => {
     assertConvert({
       input,
       output,
+      snippet,
       path: "code.jsx",
-      snippet: "react/short-syntax-fragment",
     });
   });
 });

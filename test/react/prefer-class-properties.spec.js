@@ -1,9 +1,10 @@
+const snippet = "react/prefer-class-properties";
 require("../../lib/javascript/prefer-class-properties");
 require("../../lib/javascript/no-useless-constructor");
-require("../../lib/react/prefer-class-properties");
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("react/prefer-react-class-properties", () => {
+describe(snippet, () => {
   const input = `
     class Button extends Component {
       constructor(props) {
@@ -70,7 +71,7 @@ describe("react/prefer-react-class-properties", () => {
   assertConvert({
     input,
     output,
+    snippet,
     path: "code.jsx",
-    snippet: "react/prefer-class-properties",
   });
 });

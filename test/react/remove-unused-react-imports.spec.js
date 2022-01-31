@@ -1,7 +1,8 @@
-require("../../lib/react/remove-unused-react-imports");
+const snippet = "react/remove-unused-react-imports";
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("react/remove-unused-react-imports", () => {
+describe(snippet, () => {
   const input = `
     import React from 'react';
 
@@ -19,7 +20,7 @@ describe("react/remove-unused-react-imports", () => {
   assertConvert({
     input,
     output,
+    snippet,
     path: "code.jsx",
-    snippet: "react/remove-unused-react-imports",
   });
 });

@@ -1,7 +1,8 @@
-require("../../lib/jquery/deprecate-event-shorthand");
+const snippet = "jquery/deprecate-event-shorthand";
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("jquery/deprecate-event-shorthand", () => {
+describe(snippet, () => {
   assertConvert({
     input: `
       $('#test').click(function(e) {
@@ -25,6 +26,6 @@ describe("jquery/deprecate-event-shorthand", () => {
 
       $form.trigger('submit');
     `,
-    snippet: "jquery/deprecate-event-shorthand",
+    snippet
   });
 });

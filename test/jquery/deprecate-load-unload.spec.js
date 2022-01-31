@@ -1,7 +1,8 @@
-require("../../lib/jquery/deprecate-load-unload");
+const snippet = "jquery/deprecate-load-unload";
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("jquery/deprecate-load-unload", () => {
+describe(snippet, () => {
   assertConvert({
     input: `
       $(this).load(function () { console.log('load') });
@@ -11,6 +12,6 @@ describe("jquery/deprecate-load-unload", () => {
       $(this).on('load', function () { console.log('load') });
       $(this).on('unload', function () { console.log('unload') });
     `,
-    snippet: "jquery/deprecate-load-unload",
+    snippet,
   });
 });

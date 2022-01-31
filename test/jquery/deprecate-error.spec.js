@@ -1,14 +1,11 @@
-require("../../lib/jquery/deprecate-error");
+const snippet = "jquery/deprecate-error";
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("jquery/deprecate-error", () => {
+describe(snippet, () => {
   assertConvert({
-    input: `
-      $(this).error(function () { console.log('error') });
-    `,
-    output: `
-      $(this).on('error', function () { console.log('error') });
-    `,
-    snippet: "jquery/deprecate-error",
+    input: `$(this).error(function () { console.log('error') });`,
+    output: `$(this).on('error', function () { console.log('error') });`,
+    snippet,
   });
 });

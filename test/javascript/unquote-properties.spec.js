@@ -1,7 +1,8 @@
-require("../../lib/javascript/unquote-properties");
+const snippet = "javascript/unquote-properties";
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("javascript/unquote-properties", () => {
+describe(snippet, () => {
   const input = `
     var x = {
       'quotedProp': 1,
@@ -43,6 +44,6 @@ describe("javascript/unquote-properties", () => {
   assertConvert({
     input,
     output,
-    snippet: "javascript/unquote-properties",
+    snippet,
   });
 });

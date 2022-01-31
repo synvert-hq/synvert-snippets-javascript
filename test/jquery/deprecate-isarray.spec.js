@@ -1,14 +1,11 @@
-require("../../lib/jquery/deprecate-isarray");
+const snippet = "jquery/deprecate-isarray";
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("jquery/deprecate-isarray", () => {
+describe(snippet, () => {
   assertConvert({
-    input: `
-      $.isArray(arr)
-    `,
-    output: `
-      Array.isArray(arr)
-    `,
-    snippet: "jquery/deprecate-isarray",
+    input: `$.isArray(arr)`,
+    output: `Array.isArray(arr)`,
+    snippet,
   });
 });

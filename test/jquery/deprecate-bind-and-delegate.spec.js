@@ -1,7 +1,8 @@
-require("../../lib/jquery/deprecate-bind-and-delegate");
+const snippet = "jquery/deprecate-bind-and-delegate";
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("jquery/deprecate-bind-and-delegate", () => {
+describe(snippet, () => {
   assertConvert({
     input: `
       $(this).bind("click", function () { console.log('bind') });
@@ -17,6 +18,6 @@ describe("jquery/deprecate-bind-and-delegate", () => {
       $(this).on(event, selector, handler);
       $(this).off(event, selector, handler);
     `,
-    snippet: "jquery/deprecate-bind-and-delegate",
+    snippet,
   });
 });

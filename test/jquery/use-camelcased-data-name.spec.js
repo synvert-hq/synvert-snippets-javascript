@@ -1,7 +1,8 @@
-require("../../lib/jquery/use-camelcased-data-name");
+const snippet = "jquery/use-camelcased-data-name";
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("jquery/use-camelcased-data-name", () => {
+describe(snippet, () => {
   assertConvert({
     input: `
       $this.data('my-data');
@@ -11,6 +12,6 @@ describe("jquery/use-camelcased-data-name", () => {
       $this.data('myData');
       $this.data('myData', 'value');
     `,
-    snippet: "jquery/use-camelcased-data-name",
+    snippet,
   });
 });

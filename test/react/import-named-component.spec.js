@@ -1,7 +1,8 @@
-require("../../lib/react/import-named-component");
+const snippet = "react/import-named-component";
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("react/import-named-component", () => {
+describe(snippet, () => {
   describe("import default", () => {
     const input = `
       import React from 'react';
@@ -20,8 +21,8 @@ describe("react/import-named-component", () => {
     assertConvert({
       input,
       output,
+      snippet,
       path: "code.jsx",
-      snippet: "react/import-named-component",
     });
   });
 
@@ -43,8 +44,8 @@ describe("react/import-named-component", () => {
     assertConvert({
       input,
       output,
+      snippet,
       path: "code.jsx",
-      snippet: "react/import-named-component",
     });
   });
 });

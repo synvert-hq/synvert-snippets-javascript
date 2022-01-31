@@ -1,7 +1,8 @@
-require("../../lib/jquery/deprecate-removeattr-boolean-properties");
+const snippet = "jquery/deprecate-removeattr-boolean-properties";
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("jquery/deprecate-removeattr-boolean-properties", () => {
+describe(snippet, () => {
   assertConvert({
     input: `
       $this.removeAttr('checked');
@@ -15,6 +16,6 @@ describe("jquery/deprecate-removeattr-boolean-properties", () => {
       $this.prop('readonly', false);
       $this.prop('selected', false);
     `,
-    snippet: "jquery/deprecate-removeattr-boolean-properties",
+    snippet,
   });
 });

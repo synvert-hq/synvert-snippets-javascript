@@ -1,10 +1,11 @@
-require("../../lib/jquery/deprecate-size");
+const snippet = "jquery/deprecate-size";
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("jquery/deprecate-size", () => {
+describe(snippet, () => {
   assertConvert({
     input: `$('.active').size()`,
     output: `$('.active').length`,
-    snippet: "jquery/deprecate-size",
+    snippet,
   });
 });

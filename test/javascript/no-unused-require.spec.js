@@ -1,7 +1,8 @@
-require("../../lib/javascript/no-unused-require");
+const snippet = "javascript/no-unused-require";
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("javascript/no-unused-require", () => {
+describe(snippet, () => {
   describe("all valid", () => {
     assertConvert({
       input: `
@@ -14,7 +15,7 @@ describe("javascript/no-unused-require", () => {
         const { a, b } = require("y");
         const c = a() + b() + x();
       `,
-      snippet: "javascript/no-unused-require",
+      snippet,
     });
   });
 
@@ -30,7 +31,7 @@ describe("javascript/no-unused-require", () => {
         const { b } = require("y");
         const c = b() + x();
       `,
-      snippet: "javascript/no-unused-require",
+      snippet,
     });
   });
 
@@ -46,7 +47,7 @@ describe("javascript/no-unused-require", () => {
         const { a } = require("y");
         const c = a() + x();
       `,
-      snippet: "javascript/no-unused-require",
+      snippet,
     });
   });
 
@@ -61,7 +62,7 @@ describe("javascript/no-unused-require", () => {
         const x = require("x");
         const c = x();
       `,
-      snippet: "javascript/no-unused-require",
+      snippet,
     });
   });
 
@@ -76,7 +77,7 @@ describe("javascript/no-unused-require", () => {
         const { a, b } = require("y");
         const c = a() + b();
       `,
-      snippet: "javascript/no-unused-require",
+      snippet,
     });
   });
 });

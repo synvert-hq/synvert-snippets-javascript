@@ -1,7 +1,8 @@
-require("../../lib/react/transfer-class-components-to-functions");
+const snippet = "react/transfer-class-components-to-functions";
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("react/transfer-class-components-to-functions", () => {
+describe(snippet, () => {
   describe('simple compoment', () => {
     const input = `
       import React, { Component } from 'react';
@@ -22,8 +23,8 @@ describe("react/transfer-class-components-to-functions", () => {
     assertConvert({
       input,
       output,
+      snippet,
       path: "code.jsx",
-      snippet: "react/transfer-class-components-to-functions",
     });
   });
 
@@ -47,8 +48,8 @@ describe("react/transfer-class-components-to-functions", () => {
     assertConvert({
       input,
       output,
+      snippet,
       path: "code.jsx",
-      snippet: "react/transfer-class-components-to-functions",
     });
   });
 
@@ -81,8 +82,8 @@ describe("react/transfer-class-components-to-functions", () => {
     assertConvert({
       input,
       output,
+      snippet,
       path: "code.jsx",
-      snippet: "react/transfer-class-components-to-functions",
     });
   });
 
@@ -156,8 +157,8 @@ describe("react/transfer-class-components-to-functions", () => {
     assertConvert({
       input,
       output,
+      snippet,
       path: "code.jsx",
-      snippet: "react/transfer-class-components-to-functions",
     });
   });
 
@@ -200,8 +201,8 @@ describe("react/transfer-class-components-to-functions", () => {
     assertConvert({
       input,
       output,
+      snippet,
       path: "code.jsx",
-      snippet: "react/transfer-class-components-to-functions",
     });
   });
 });

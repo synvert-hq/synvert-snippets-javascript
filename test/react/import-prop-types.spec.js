@@ -1,7 +1,8 @@
-require("../../lib/react/import-prop-types");
+const snippet = "react/import-prop-types";
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("react/import-prop-types", () => {
+describe(snippet, () => {
   describe("single specifier", () => {
     const input = `
       import React, { PropTypes } from 'react';
@@ -15,8 +16,8 @@ describe("react/import-prop-types", () => {
     assertConvert({
       input,
       output,
+      snippet,
       path: "code.jsx",
-      snippet: "react/import-prop-types",
     });
   });
 
@@ -33,8 +34,8 @@ describe("react/import-prop-types", () => {
     assertConvert({
       input,
       output,
+      snippet,
       path: "code.jsx",
-      snippet: "react/import-prop-types",
     });
   });
 });

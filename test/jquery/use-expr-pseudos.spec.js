@@ -1,7 +1,8 @@
-require("../../lib/jquery/use-expr-pseudos");
+const snippet = "jquery/use-expr-pseudos";
+require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
-describe("jquery/use-expr-pseudos", () => {
+describe(snippet, () => {
   assertConvert({
     input: `
       $.expr[':']
@@ -11,6 +12,6 @@ describe("jquery/use-expr-pseudos", () => {
       $.expr.pseudos
       $.expr.pseudos
     `,
-    snippet: "jquery/use-expr-pseudos",
+    snippet,
   });
 });
