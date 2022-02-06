@@ -3,7 +3,7 @@ require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {
-  describe('simple compoment', () => {
+  describe("simple compoment", () => {
     const input = `
       import React, { Component } from 'react';
       class MyComponent extends Component {
@@ -28,7 +28,7 @@ describe(snippet, () => {
     });
   });
 
-  describe('this.props', () => {
+  describe("this.props", () => {
     const input = `
       import React, { Component } from 'react';
       class MyComponent extends Component {
@@ -53,7 +53,7 @@ describe(snippet, () => {
     });
   });
 
-  describe('conflict prop name', () => {
+  describe("conflict prop name", () => {
     const input = `
       import React, { Component } from 'react';
       class MyComponent extends Component {
@@ -87,7 +87,7 @@ describe(snippet, () => {
     });
   });
 
-  describe('useState', () => {
+  describe("useState", () => {
     const input = `
       import React, { Component } from 'react';
 
@@ -126,7 +126,7 @@ describe(snippet, () => {
     });
   });
 
-  describe('destruct this.state', () => {
+  describe("destruct this.state", () => {
     const input = `
       import React, { Component } from 'react';
 
@@ -162,7 +162,7 @@ describe(snippet, () => {
     });
   });
 
-  describe('comment lifecycle methods', () => {
+  describe("comment lifecycle methods", () => {
     const input = `
       import React, { Component } from 'react';
 
