@@ -26,6 +26,6 @@ describe(snippet, () => {
 
       $form.trigger('submit');
     `,
-    snippet
+    snippet,
   });
 });
