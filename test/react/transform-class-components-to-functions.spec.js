@@ -1,4 +1,4 @@
-const snippet = "react/transfer-class-components-to-functions";
+const snippet = "react/transform-class-components-to-functions";
 require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
@@ -122,7 +122,7 @@ describe(snippet, () => {
       input,
       output,
       path: "code.jsx",
-      snippet: "react/transfer-class-components-to-functions",
+      snippet: "react/transform-class-components-to-functions",
     });
   });
 
