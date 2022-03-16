@@ -1,4 +1,4 @@
-const snippet = "synvert/deprecate-fix-indent-to-source"
+const snippet = "synvert/deprecate-fix-indent-to-source";
 require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
@@ -9,7 +9,7 @@ describe(snippet, () => {
         this.currentNode.fixIndentToSource()
       });
     });
-  `
+  `;
 
   const output = `
     new Synvert.Rewriter("synvert", "deprecate-fix-indent-to-source", () => {
@@ -17,7 +17,7 @@ describe(snippet, () => {
         this.currentNode.toSource({ fixIndent: true })
       });
     });
-  `
+  `;
 
   assertConvert({
     input,
