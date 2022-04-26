@@ -9,4 +9,4 @@ Synvert snippets are used to describe how to rewrite javascript code based on [s
 
 To use snippets to convert javascript code, you need the CLI [synvert-javascript](https://github.com/xinminlabs/synvert-javascript).
 
-To practice how to write the snippet, you can try [Synvert Playground](https://synvert-playground.xinminlabs.com?language=javascript).
+To practice how to write the snippet, you can try [Synvert Playground](https://synvert-playground.xinminlabs.com/javascript).
