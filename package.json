@@ -4,7 +4,7 @@
   "description": "synvert javascript snippets",
   "scripts": {
     "test": "jest",
-    "test_watch": "jest --watch"
+    "watch:test": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,6 @@
   "devDependencies": {
     "jest": "^27.0.6",
     "mock-fs": "^5.0.0",
-    "synvert-core": "^0.40.0"
+    "synvert-core": "^1.1.0"
   }
 }
