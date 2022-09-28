@@ -5,7 +5,7 @@ const { assertConvert } = require("../utils");
 describe(snippet, () => {
   const input = `
     new Synvert.Rewriter("synvert", "deprecate-fix-indent-to-source", () => {
-      withinFiles(Synvert.ALL_JS_FILES, function () {
+      withinFiles(Synvert.ALL_FILES, function () {
         this.currentNode.fixIndentToSource()
       });
     });
@@ -13,7 +13,7 @@ describe(snippet, () => {
 
   const output = `
     new Synvert.Rewriter("synvert", "deprecate-fix-indent-to-source", () => {
-      withinFiles(Synvert.ALL_JS_FILES, function () {
+      withinFiles(Synvert.ALL_FILES, function () {
         this.currentNode.toSource({ fixIndent: true })
       });
     });
