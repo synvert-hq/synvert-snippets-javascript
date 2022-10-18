@@ -10,9 +10,9 @@ const assertConvert = (options) => {
 
   beforeEach(() => {
     if (options.helper) {
-      process.env.SYNVERT_SNIPPETS_HOME = path.join(__dirname, "..")
-      const helperLibraryPath = path.join(process.env.SYNVERT_SNIPPETS_HOME, 'lib', options.helper + '.js');
-      const helperContent = fs.readFileSync(helperLibraryPath, 'utf-8');
+      process.env.SYNVERT_SNIPPETS_HOME = path.join(__dirname, "..");
+      const helperLibraryPath = path.join(process.env.SYNVERT_SNIPPETS_HOME, "lib", options.helper + ".js");
+      const helperContent = fs.readFileSync(helperLibraryPath, "utf-8");
       mock({
         [helperLibraryPath]: helperContent,
         [snippetPath]: input,
