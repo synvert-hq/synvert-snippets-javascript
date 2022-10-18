@@ -18,6 +18,7 @@ describe(snippet, () => {
         const c = a() + b + x() + y();
       `,
       snippet,
+      helper: 'helpers/remove-imports',
     });
   });
 
@@ -36,6 +37,7 @@ describe(snippet, () => {
         const c = b(x, y);
       `,
       snippet,
+      helper: 'helpers/remove-imports',
     });
   });
 
@@ -58,6 +60,7 @@ describe(snippet, () => {
         const c = a(y);
       `,
       snippet,
+      helper: 'helpers/remove-imports',
     });
   });
 
@@ -75,6 +78,7 @@ describe(snippet, () => {
         console.log(y);
       `,
       snippet,
+      helper: 'helpers/remove-imports',
     });
   });
 
@@ -89,6 +93,7 @@ describe(snippet, () => {
         console.log(c);
       `,
       snippet,
+      helper: 'helpers/remove-imports',
     });
   });
 
@@ -104,6 +109,7 @@ describe(snippet, () => {
         const c = a() + b;
       `,
       snippet,
+      helper: 'helpers/remove-imports',
     });
   });
 
@@ -118,6 +124,7 @@ describe(snippet, () => {
         const c = a() + b;
       `,
       snippet,
+      helper: 'helpers/remove-imports',
     });
   });
 
@@ -132,6 +139,7 @@ describe(snippet, () => {
         p.test();
       `,
       snippet,
+      helper: 'helpers/remove-imports',
     });
   });
 
@@ -145,6 +153,7 @@ describe(snippet, () => {
         console.log("p");
       `,
       snippet,
+      helper: 'helpers/remove-imports',
     });
   });
 
@@ -159,6 +168,7 @@ describe(snippet, () => {
         console.log(y);
       `,
       snippet,
+      helper: 'helpers/remove-imports',
     });
   });
 
@@ -185,6 +195,7 @@ describe(snippet, () => {
         }
       `,
       snippet,
+      helper: 'helpers/remove-imports',
       path: "code.jsx",
     });
   });
