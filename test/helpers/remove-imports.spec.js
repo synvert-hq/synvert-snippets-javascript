@@ -15,7 +15,7 @@ describe("helpers/remove-imports", () => {
         import y from "package";
         const c = a() + b + x() + y();
       `,
-      helper: 'helpers/remove-imports',
+      helper: "helpers/remove-imports",
       options: { importNames: [] },
     });
   });
@@ -34,8 +34,8 @@ describe("helpers/remove-imports", () => {
         import y from "package";
         const c = b(x, y);
       `,
-      helper: 'helpers/remove-imports',
-      options: { importNames: ['a'] },
+      helper: "helpers/remove-imports",
+      options: { importNames: ["a"] },
     });
   });
 
@@ -57,8 +57,8 @@ describe("helpers/remove-imports", () => {
          */
         const c = a(y);
       `,
-      helper: 'helpers/remove-imports',
-      options: { importNames: ['b'] },
+      helper: "helpers/remove-imports",
+      options: { importNames: ["b"] },
     });
   });
 
@@ -75,8 +75,8 @@ describe("helpers/remove-imports", () => {
         const c = 4;
         console.log(y);
       `,
-      helper: 'helpers/remove-imports',
-      options: { importNames: ['a', 'b'] },
+      helper: "helpers/remove-imports",
+      options: { importNames: ["a", "b"] },
     });
   });
 
@@ -90,8 +90,8 @@ describe("helpers/remove-imports", () => {
         import c from "./utils";
         console.log(c);
       `,
-      helper: 'helpers/remove-imports',
-      options: { importNames: ['a', 'b'] },
+      helper: "helpers/remove-imports",
+      options: { importNames: ["a", "b"] },
     });
   });
 
@@ -106,8 +106,8 @@ describe("helpers/remove-imports", () => {
         import { a, b } from "./utils";
         const c = a() + b;
       `,
-      helper: 'helpers/remove-imports',
-      options: { importNames: ['y'] },
+      helper: "helpers/remove-imports",
+      options: { importNames: ["y"] },
     });
   });
 
@@ -121,8 +121,8 @@ describe("helpers/remove-imports", () => {
         import { a, b } from "./utils";
         const c = a() + b;
       `,
-      helper: 'helpers/remove-imports',
-      options: { importNames: ['y'] },
+      helper: "helpers/remove-imports",
+      options: { importNames: ["y"] },
     });
   });
 
@@ -136,8 +136,8 @@ describe("helpers/remove-imports", () => {
         import * as p from "package";
         p.test();
       `,
-      helper: 'helpers/remove-imports',
-      options: { importNames: ['y'] },
+      helper: "helpers/remove-imports",
+      options: { importNames: ["y"] },
     });
   });
 
@@ -150,8 +150,8 @@ describe("helpers/remove-imports", () => {
       output: `
         console.log("p");
       `,
-      helper: 'helpers/remove-imports',
-      options: { importNames: ['p'] },
+      helper: "helpers/remove-imports",
+      options: { importNames: ["p"] },
     });
   });
 
@@ -165,8 +165,8 @@ describe("helpers/remove-imports", () => {
         import y from "package";
         console.log(y);
       `,
-      helper: 'helpers/remove-imports',
-      options: { importNames: ['p'] },
+      helper: "helpers/remove-imports",
+      options: { importNames: ["p"] },
     });
   });
 });
