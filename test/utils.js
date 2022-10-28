@@ -55,7 +55,7 @@ const assertHelper = (options) => {
 
   test("convert", () => {
     const rewriter = new Synvert.Rewriter("group", "name", () => {
-      configure({ parser: "typescript" });
+      configure({ parser: Synvert.Parser.TYPESCRIPT });
       withinFiles("*.{js,jsx}", () => {
         callHelper(options.helper, options.options);
       });
