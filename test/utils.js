@@ -9,14 +9,15 @@ const assertConvert = (options) => {
   const output = options["output"];
 
   beforeEach(() => {
-    if (options.helper) {
+    if (options.helpers) {
       process.env.SYNVERT_SNIPPETS_HOME = path.join(__dirname, "..");
-      const helperLibraryPath = path.join(process.env.SYNVERT_SNIPPETS_HOME, "lib", options.helper + ".js");
-      const helperContent = fs.readFileSync(helperLibraryPath, "utf-8");
-      mock({
-        [helperLibraryPath]: helperContent,
-        [snippetPath]: input,
+      const helperMocks = {};
+      options.helpers.forEach(helper => {
+        const helperLibraryPath = path.join(process.env.SYNVERT_SNIPPETS_HOME, "lib", helper + ".js");
+        const helperContent = fs.readFileSync(helperLibraryPath, "utf-8");
+        helperMocks[helperLibraryPath] = helperContent;
       });
+      mock({ ...{ [snippetPath]: input }, ...helperMocks });
     } else {
       mock({ [snippetPath]: input });
     }

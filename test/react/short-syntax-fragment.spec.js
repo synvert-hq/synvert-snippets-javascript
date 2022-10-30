@@ -34,7 +34,7 @@ describe(snippet, () => {
       input,
       output,
       snippet,
-      helper: "helpers/remove-imports",
+      helpers: ["helpers/remove-imports"],
       path: "code.jsx",
     });
   });
@@ -70,7 +70,7 @@ describe(snippet, () => {
       input,
       output,
       snippet,
-      helper: "helpers/remove-imports",
+      helpers: ["helpers/remove-imports"],
       path: "code.jsx",
     });
   });
@@ -106,7 +106,7 @@ describe(snippet, () => {
       input,
       output,
       snippet,
-      helper: "helpers/remove-imports",
+      helpers: ["helpers/remove-imports"],
       path: "code.jsx",
     });
   });
