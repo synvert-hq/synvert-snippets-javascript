@@ -24,6 +24,7 @@ describe(snippet, () => {
       input,
       output,
       snippet,
+      helpers: ["helpers/remove-imports", "helpers/add-import"],
       path: "code.jsx",
     });
   });
@@ -49,6 +50,7 @@ describe(snippet, () => {
       input,
       output,
       snippet,
+      helpers: ["helpers/remove-imports", "helpers/add-import"],
       path: "code.jsx",
     });
   });
@@ -83,6 +85,7 @@ describe(snippet, () => {
       input,
       output,
       snippet,
+      helpers: ["helpers/remove-imports", "helpers/add-import"],
       path: "code.jsx",
     });
   });
@@ -122,6 +125,7 @@ describe(snippet, () => {
       input,
       output,
       path: "code.jsx",
+      helpers: ["helpers/remove-imports", "helpers/add-import"],
       snippet: "react/transform-class-components-to-functions",
     });
   });
@@ -158,6 +162,7 @@ describe(snippet, () => {
       input,
       output,
       snippet,
+      helpers: ["helpers/remove-imports", "helpers/add-import"],
       path: "code.jsx",
     });
   });
@@ -202,6 +207,7 @@ describe(snippet, () => {
       input,
       output,
       snippet,
+      helpers: ["helpers/remove-imports", "helpers/add-import"],
       path: "code.jsx",
     });
   });
