@@ -2,13 +2,28 @@ const { assertHelper } = require("../utils");
 
 describe("helpers/add-import", () => {
   describe("default import", () => {
-    describe("insert unless exist", () => {
+    describe("inserts unless exist", () => {
       assertHelper({
         input: `
           class MyComponent {}
         `,
         output: `
           import React from "react";
+          class MyComponent {}
+        `,
+        helper: "helpers/add-import",
+        options: { defaultImport: "React", moduleSpecifier: "react" },
+      });
+    });
+
+    describe("inserts before named import", () => {
+      assertHelper({
+        input: `
+          import { Component } from "react";
+          class MyComponent {}
+        `,
+        output: `
+          import React, { Component } from "react";
           class MyComponent {}
         `,
         helper: "helpers/add-import",
@@ -33,7 +48,23 @@ describe("helpers/add-import", () => {
   });
 
   describe("named import", () => {
-    describe("insert unless exist", () => {
+    describe("inserts unless exist", () => {
+      assertHelper({
+        input: `
+          import Bootstrap from "react-bootstrap";
+          class MyComponent {}
+        `,
+        output: `
+          import { Component } from "react";
+          import Bootstrap from "react-bootstrap";
+          class MyComponent {}
+        `,
+        helper: "helpers/add-import",
+        options: { namedImport: "Component", moduleSpecifier: "react" },
+      });
+    });
+
+    describe("inserts no import", () => {
       assertHelper({
         input: `
           class MyComponent {}
@@ -47,7 +78,7 @@ describe("helpers/add-import", () => {
       });
     });
 
-    describe("insert unless exist but has default import", () => {
+    describe("inserts unless exist but has default import", () => {
       assertHelper({
         input: `
           import React from "react";
@@ -79,7 +110,7 @@ describe("helpers/add-import", () => {
   });
 
   describe("namespace import", () => {
-    describe("insert unless exist", () => {
+    describe("inserts unless exist", () => {
       assertHelper({
         input: `
           class MyComponent {}
