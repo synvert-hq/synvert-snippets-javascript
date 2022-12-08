@@ -1,5 +1,4 @@
 const snippet = "jquery/use-camelcased-data-name";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

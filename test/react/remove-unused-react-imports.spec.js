@@ -1,5 +1,4 @@
 const snippet = "react/remove-unused-react-imports";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

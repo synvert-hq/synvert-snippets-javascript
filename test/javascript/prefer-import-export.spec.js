@@ -1,5 +1,4 @@
 const snippet = "javascript/prefer-import-export";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

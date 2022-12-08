@@ -1,5 +1,4 @@
 const snippet = "javascript/prefer-string-starts-ends-with";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

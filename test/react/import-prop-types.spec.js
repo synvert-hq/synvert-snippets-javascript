@@ -1,5 +1,4 @@
 const snippet = "react/import-prop-types";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

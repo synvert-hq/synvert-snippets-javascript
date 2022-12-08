@@ -1,5 +1,4 @@
 const snippet = "jquery/deprecate-jqxhr-success-error-and-complete";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

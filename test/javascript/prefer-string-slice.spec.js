@@ -1,5 +1,4 @@
 const snippet = "javascript/prefer-string-slice";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

@@ -1,5 +1,4 @@
 const snippet = "react/short-syntax-fragment";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

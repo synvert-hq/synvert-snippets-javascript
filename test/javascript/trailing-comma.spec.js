@@ -1,5 +1,4 @@
 const snippet = "javascript/trailing-comma";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

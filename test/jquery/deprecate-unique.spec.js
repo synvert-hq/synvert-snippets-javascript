@@ -1,5 +1,4 @@
 const snippet = "jquery/deprecate-unique";
-require("../../lib/jquery/deprecate-unique");
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

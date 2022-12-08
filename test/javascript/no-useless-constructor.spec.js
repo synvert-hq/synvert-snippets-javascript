@@ -1,5 +1,4 @@
 const snippet = "javascript/no-useless-constructor";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

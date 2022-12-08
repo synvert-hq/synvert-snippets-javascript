@@ -1,5 +1,4 @@
 const snippet = "jquery/deprecate-parsejson";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

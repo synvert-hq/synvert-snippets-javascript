@@ -1,5 +1,4 @@
 const snippet = "jquery/use-expr-pseudos";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

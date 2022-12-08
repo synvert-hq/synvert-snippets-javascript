@@ -1,5 +1,4 @@
 const snippet = "react/transform-class-components-to-functions";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

@@ -1,5 +1,4 @@
 const snippet = "jquery/deprecate-error";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

@@ -1,5 +1,4 @@
 const snippet = "synvert/deprecate-fix-indent-to-source";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

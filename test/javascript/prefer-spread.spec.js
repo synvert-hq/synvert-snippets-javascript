@@ -1,5 +1,4 @@
 const snippet = "javascript/prefer-spread";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

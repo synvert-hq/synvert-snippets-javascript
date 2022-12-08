@@ -1,5 +1,4 @@
 const snippet = "jquery/quote-attribute-selector-with-number-sign";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

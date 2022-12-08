@@ -1,5 +1,4 @@
 const snippet = "react/add-autocomplete-attribute";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

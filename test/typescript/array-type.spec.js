@@ -1,5 +1,4 @@
 const snippet = "typescript/array-type";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

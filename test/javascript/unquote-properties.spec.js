@@ -1,5 +1,4 @@
 const snippet = "javascript/unquote-properties";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

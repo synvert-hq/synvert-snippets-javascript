@@ -1,5 +1,4 @@
 const snippet = "react/upgrade-to-18";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

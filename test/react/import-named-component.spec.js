@@ -1,5 +1,4 @@
 const snippet = "react/import-named-component";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

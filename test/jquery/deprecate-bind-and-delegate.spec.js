@@ -1,5 +1,4 @@
 const snippet = "jquery/deprecate-bind-and-delegate";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

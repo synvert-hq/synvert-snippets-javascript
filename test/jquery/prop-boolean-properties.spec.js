@@ -1,5 +1,4 @@
 const snippet = "jquery/prop-boolean-properties";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

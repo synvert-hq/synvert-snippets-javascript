@@ -1,5 +1,4 @@
 const snippet = "javascript/no-unused-require";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

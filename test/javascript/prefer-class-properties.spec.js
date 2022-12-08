@@ -1,5 +1,4 @@
 const snippet = "javascript/prefer-class-properties";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

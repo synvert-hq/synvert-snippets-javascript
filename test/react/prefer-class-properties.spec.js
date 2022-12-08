@@ -1,6 +1,4 @@
 const snippet = "react/prefer-class-properties";
-require("../../lib/javascript/no-useless-constructor");
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

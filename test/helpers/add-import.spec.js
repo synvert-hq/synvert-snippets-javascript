@@ -1,3 +1,4 @@
+const helper = "helpers/add-import";
 const { assertHelper } = require("../utils");
 
 describe("helpers/add-import", () => {
@@ -11,7 +12,7 @@ describe("helpers/add-import", () => {
           import React from "react";
           class MyComponent {}
         `,
-        helper: "helpers/add-import",
+        helper,
         options: { defaultImport: "React", moduleSpecifier: "react" },
       });
     });
@@ -26,7 +27,7 @@ describe("helpers/add-import", () => {
           import React, { Component } from "react";
           class MyComponent {}
         `,
-        helper: "helpers/add-import",
+        helper,
         options: { defaultImport: "React", moduleSpecifier: "react" },
       });
     });
@@ -41,7 +42,7 @@ describe("helpers/add-import", () => {
           import React from "react";
           class MyComponent {}
         `,
-        helper: "helpers/add-import",
+        helper,
         options: { defaultImport: "React", moduleSpecifier: "react" },
       });
     });
@@ -59,7 +60,7 @@ describe("helpers/add-import", () => {
           import Bootstrap from "react-bootstrap";
           class MyComponent {}
         `,
-        helper: "helpers/add-import",
+        helper,
         options: { namedImport: "Component", moduleSpecifier: "react" },
       });
     });
@@ -73,7 +74,7 @@ describe("helpers/add-import", () => {
           import { Component } from "react";
           class MyComponent {}
         `,
-        helper: "helpers/add-import",
+        helper,
         options: { namedImport: "Component", moduleSpecifier: "react" },
       });
     });
@@ -88,7 +89,7 @@ describe("helpers/add-import", () => {
           import React, { Component } from "react";
           class MyComponent {}
         `,
-        helper: "helpers/add-import",
+        helper,
         options: { namedImport: "Component", moduleSpecifier: "react" },
       });
     });
@@ -103,7 +104,7 @@ describe("helpers/add-import", () => {
           import { Component } from "react";
           class MyComponent {}
         `,
-        helper: "helpers/add-import",
+        helper,
         options: { namedImport: "Component", moduleSpecifier: "react" },
       });
     });
@@ -119,7 +120,7 @@ describe("helpers/add-import", () => {
           import * as vscode from "vscode";
           class MyComponent {}
         `,
-        helper: "helpers/add-import",
+        helper,
         options: { namespaceImport: "vscode", moduleSpecifier: "vscode" },
       });
     });
@@ -134,7 +135,7 @@ describe("helpers/add-import", () => {
           import * as vscode from "vscode";
           class MyComponent {}
         `,
-        helper: "helpers/add-import",
+        helper,
         options: { namespaceImport: "vscode", moduleSpecifier: "vscode" },
       });
     });

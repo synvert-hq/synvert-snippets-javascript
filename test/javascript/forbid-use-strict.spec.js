@@ -1,5 +1,4 @@
 const snippet = "javascript/forbid-use-strict";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

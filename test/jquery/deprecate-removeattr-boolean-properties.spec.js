@@ -1,5 +1,4 @@
 const snippet = "jquery/deprecate-removeattr-boolean-properties";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {

@@ -1,5 +1,4 @@
 const snippet = "javascript/object-property-value-shorthand";
-require(`../../lib/${snippet}`);
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {
