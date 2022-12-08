@@ -22,12 +22,12 @@ const assertConvert = (options) => {
       mock({
         [libraryPath]: libraryContent,
         [snippetPath]: input,
-        ...helperMocks
+        ...helperMocks,
       });
     } else {
       mock({
         [libraryPath]: libraryContent,
-        [snippetPath]: input
+        [snippetPath]: input,
       });
     }
   });
