@@ -24,6 +24,6 @@
   "devDependencies": {
     "jest": "^27.0.6",
     "mock-fs": "^5.0.0",
-    "synvert-core": "^1.23.1"
+    "synvert-core": "^2.0.2"
   }
 }
