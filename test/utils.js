@@ -4,11 +4,13 @@ const mock = require("mock-fs");
 const Synvert = require("synvert-core");
 
 const assertConvert = (options) => {
-  const snippetPath = options["path"] || "code.js";
-  const input = options["input"];
-  const output = options["output"];
+  const snippetPath = options.path || "code.js";
+  const { input, output } = options;
 
   beforeEach(() => {
+    process.env.SYNVERT_SNIPPETS_HOME = path.join(__dirname, "..");
+    const libraryPath = path.join(process.env.SYNVERT_SNIPPETS_HOME, "lib", options.snippet + ".js");
+    const libraryContent = fs.readFileSync(libraryPath, "utf-8");
     if (options.helpers) {
       process.env.SYNVERT_SNIPPETS_HOME = path.join(__dirname, "..");
       const helperMocks = {};
@@ -17,9 +19,16 @@ const assertConvert = (options) => {
         const helperContent = fs.readFileSync(helperLibraryPath, "utf-8");
         helperMocks[helperLibraryPath] = helperContent;
       });
-      mock({ ...{ [snippetPath]: input }, ...helperMocks });
+      mock({
+        [libraryPath]: libraryContent,
+        [snippetPath]: input,
+        ...helperMocks
+      });
     } else {
-      mock({ [snippetPath]: input });
+      mock({
+        [libraryPath]: libraryContent,
+        [snippetPath]: input
+      });
     }
   });
 
@@ -28,17 +37,17 @@ const assertConvert = (options) => {
   });
 
   test("convert", () => {
-    const [group, name] = options["snippet"].split("/");
-    const rewriter = Synvert.Rewriter.fetch(group, name);
-    rewriter.process();
+    process.env.SYNVERT_SNIPPETS_HOME = path.join(__dirname, "..");
+    const libraryPath = path.join(process.env.SYNVERT_SNIPPETS_HOME, "lib", options.snippet + ".js");
+    const rewriter = Synvert.evalSnippetSync(libraryPath);
+    rewriter.processSync();
     expect(fs.readFileSync(snippetPath, "utf-8")).toEqual(output);
   });
 };
 
 const assertHelper = (options) => {
-  const helperPath = options["path"] || "code.js";
-  const input = options["input"];
-  const output = options["output"];
+  const helperPath = options.path || "code.js";
+  const { input, output } = options;
 
   beforeEach(() => {
     process.env.SYNVERT_SNIPPETS_HOME = path.join(__dirname, "..");
@@ -55,13 +64,13 @@ const assertHelper = (options) => {
   });
 
   test("convert", () => {
-    const rewriter = new Synvert.Rewriter("group", "name", () => {
-      configure({ parser: Synvert.Parser.TYPESCRIPT });
-      withinFiles("*.{js,jsx}", () => {
-        callHelper(options.helper, options.options);
+    const rewriter = new Synvert.Rewriter("group", "name", function () {
+      this.configure({ parser: Synvert.Parser.TYPESCRIPT });
+      this.withinFilesSync("*.{js,jsx}", function () {
+        this.callHelperSync(options.helper, options.options);
       });
     });
-    rewriter.process();
+    rewriter.processSync();
     expect(fs.readFileSync(helperPath, "utf-8")).toEqual(output);
   });
 };
