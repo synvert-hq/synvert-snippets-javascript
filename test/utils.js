@@ -16,7 +16,7 @@ const otherSnippetsMockSync = (options) => {
     });
   }
   return mocks;
-}
+};
 
 const otherSnippetsMock = async (options) => {
   const mocks = {};
@@ -28,7 +28,7 @@ const otherSnippetsMock = async (options) => {
     }
   }
   return mocks;
-}
+};
 
 const assertConvert = (options) => {
   const snippetPath = options.path || "code.js";
