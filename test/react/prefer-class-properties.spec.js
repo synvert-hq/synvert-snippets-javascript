@@ -69,6 +69,7 @@ describe(snippet, () => {
     input,
     output,
     snippet,
+    subSnippets: ["javascript/no-useless-constructor"],
     path: "code.jsx",
   });
 });
