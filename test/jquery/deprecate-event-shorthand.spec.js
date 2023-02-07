@@ -15,15 +15,15 @@ describe(snippet, () => {
       $form.submit();
     `,
     output: `
-      $('#test').on('click', function(e) {
+      $('#test').on("click", function(e) {
         foo();
       });
 
-      $this.on('keyup', () => {
+      $this.on("keyup", () => {
         bar();
       });
 
-      $form.trigger('submit');
+      $form.trigger("submit");
     `,
     snippet,
   });

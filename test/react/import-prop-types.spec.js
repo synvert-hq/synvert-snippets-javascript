@@ -4,12 +4,12 @@ const { assertConvert } = require("../utils");
 describe(snippet, () => {
   describe("single specifier", () => {
     const input = `
-      import React, { PropTypes } from 'react';
+      import React, { PropTypes } from "react";
     `;
 
     const output = `
-      import React from 'react';
-      import PropTypes from 'prop-types';
+      import React from "react";
+      import PropTypes from "prop-types";
     `;
 
     assertConvert({
@@ -22,12 +22,12 @@ describe(snippet, () => {
 
   describe("multiple specifiers", () => {
     const input = `
-      import React, { Component, PropTypes } from 'react';
+      import React, { Component, PropTypes } from "react";
     `;
 
     const output = `
-      import React, { Component } from 'react';
-      import PropTypes from 'prop-types';
+      import React, { Component } from "react";
+      import PropTypes from "prop-types";
     `;
 
     assertConvert({

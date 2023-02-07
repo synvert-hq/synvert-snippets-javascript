@@ -13,7 +13,7 @@ describe(snippet, () => {
   describe("does not exist", () => {
     assertConvert({
       input: `foobar`,
-      output: `'use strict'\nfoobar`,
+      output: `"use strict"\nfoobar`,
       snippet,
     });
   });
