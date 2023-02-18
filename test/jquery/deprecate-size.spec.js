@@ -3,8 +3,14 @@ const { assertConvert } = require("../utils");
 
 describe(snippet, () => {
   assertConvert({
-    input: `$('.active').size()`,
-    output: `$('.active').length`,
+    input: `
+      $('.active').size()
+      $this.size()
+    `,
+    output: `
+      $('.active').length
+      $this.length
+    `,
     snippet,
   });
 });
