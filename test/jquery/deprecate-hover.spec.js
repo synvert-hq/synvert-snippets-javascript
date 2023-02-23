@@ -8,8 +8,8 @@ describe(snippet, () => {
       $this.hover(fn1, fn2)
     `,
     output: `
-      $(this).on("mouseenter", fn1).on("mouseover", fn2)
-      $this.on("mouseenter", fn1).on("mouseover", fn2)
+      $(this).on("mouseenter", fn1).on("mouseleave", fn2)
+      $this.on("mouseenter", fn1).on("mouseleave", fn2)
     `,
     snippet,
   });
