@@ -34,7 +34,7 @@ const assertConvert = (options) => {
   const snippetPath = options.path || "code.js";
   const { input, output } = options;
 
-  describe("sync", () => {
+  if (process.env.SYNC === "true") {
     beforeEach(() => {
       const libraryPath = path.join(process.env.SYNVERT_SNIPPETS_HOME, "lib", options.snippet + ".js");
       const libraryContent = fs.readFileSync(libraryPath, "utf-8");
@@ -56,9 +56,7 @@ const assertConvert = (options) => {
       rewriter.processSync();
       expect(fs.readFileSync(snippetPath, "utf-8")).toEqual(output);
     });
-  });
-
-  describe("async", () => {
+  } else {
     beforeEach(async () => {
       const libraryPath = path.join(process.env.SYNVERT_SNIPPETS_HOME, "lib", options.snippet + ".js");
       const libraryContent = await promisesFs.readFile(libraryPath, "utf-8");
@@ -80,14 +78,14 @@ const assertConvert = (options) => {
       await rewriter.process();
       expect(await promisesFs.readFile(snippetPath, "utf-8")).toEqual(output);
     });
-  });
+  }
 };
 
 const assertHelper = (options) => {
   const helperPath = options.path || "code.js";
   const { input, output } = options;
 
-  describe("sync", () => {
+  if (process.env.SYNC === "true") {
     beforeEach(() => {
       const helperLibraryPath = path.join(process.env.SYNVERT_SNIPPETS_HOME, "lib", options.helper + ".js");
       const helperContent = fs.readFileSync(helperLibraryPath, "utf-8");
@@ -111,9 +109,7 @@ const assertHelper = (options) => {
       rewriter.processSync();
       expect(fs.readFileSync(helperPath, "utf-8")).toEqual(output);
     });
-  });
-
-  describe("async", () => {
+  } else {
     beforeEach(async () => {
       const helperLibraryPath = path.join(process.env.SYNVERT_SNIPPETS_HOME, "lib", options.helper + ".js");
       const helperContent = await promisesFs.readFile(helperLibraryPath, "utf-8");
@@ -137,7 +133,7 @@ const assertHelper = (options) => {
       await rewriter.process();
       expect(await promisesFs.readFile(helperPath, "utf-8")).toEqual(output);
     });
-  });
+  }
 };
 
 module.exports = { assertConvert, assertHelper };
