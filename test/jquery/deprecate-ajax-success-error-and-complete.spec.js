@@ -12,7 +12,10 @@ describe(snippet, () => {
         success: function (data) {
           successFunction(data);
         },
-        error: function (jqXHR, textStatus, errorThrown) { errorFunction(); }
+        error: function (jqXHR, textStatus, errorThrown) { errorFunction(); },
+        complete: function () {
+          completeFunction();
+        }
       });
     `,
     output: `
@@ -25,7 +28,10 @@ describe(snippet, () => {
       .done(function (data) {
         successFunction(data);
       })
-      .fail(function (jqXHR, textStatus, errorThrown) { errorFunction(); });
+      .fail(function (jqXHR, textStatus, errorThrown) { errorFunction(); })
+      .always(function () {
+        completeFunction();
+      });
     `,
     snippet,
   });
