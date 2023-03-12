@@ -1,4 +1,4 @@
-const snippet = "jquery/deprecate-jqxhr-success-error-and-complete";
+const snippet = "jquery/deprecate-jqxhr-methods";
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {
