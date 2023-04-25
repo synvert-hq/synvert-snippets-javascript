@@ -5,6 +5,8 @@ const mock = require("mock-fs");
 const Synvert = require("synvert-core");
 
 process.env.SYNVERT_SNIPPETS_HOME = path.join(__dirname, "..");
+const SYNVERT_CODE_HOME = path.join(__dirname, "..", "src");
+Synvert.Configuration.rootPath = SYNVERT_CODE_HOME.toString()
 
 const otherSnippetsMockSync = (options) => {
   const mocks = {};
@@ -31,7 +33,7 @@ const otherSnippetsMock = async (options) => {
 };
 
 const assertConvert = (options) => {
-  const snippetPath = options.path || "code.js";
+  const snippetPath = path.join(SYNVERT_CODE_HOME, options.path || "code.js");
   const { input, output } = options;
 
   if (process.env.SYNC === "true") {
@@ -82,7 +84,7 @@ const assertConvert = (options) => {
 };
 
 const assertHelper = (options) => {
-  const helperPath = options.path || "code.js";
+  const helperPath = path.join(SYNVERT_CODE_HOME, options.path || "code.js");
   const { input, output } = options;
 
   if (process.env.SYNC === "true") {
