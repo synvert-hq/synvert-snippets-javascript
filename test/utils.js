@@ -6,7 +6,7 @@ const Synvert = require("synvert-core");
 
 process.env.SYNVERT_SNIPPETS_HOME = path.join(__dirname, "..");
 const SYNVERT_CODE_HOME = path.join(__dirname, "..", "src");
-Synvert.Configuration.rootPath = SYNVERT_CODE_HOME.toString()
+Synvert.Configuration.rootPath = SYNVERT_CODE_HOME.toString();
 
 const otherSnippetsMockSync = (options) => {
   const mocks = {};
