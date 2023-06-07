@@ -56,7 +56,11 @@ const assertConvert = (options) => {
       const libraryPath = path.join(process.env.SYNVERT_SNIPPETS_HOME, "lib", options.snippet + ".js");
       const rewriter = Synvert.evalSnippetSync(libraryPath);
       rewriter.processSync();
-      expect(fs.readFileSync(snippetPath, "utf-8")).toEqual(output);
+      if (options.newPath) {
+        expect(fs.readFileSync(path.join(SYNVERT_CODE_HOME, options.newPath), "utf-8")).toEqual(output);
+      } else {
+        expect(fs.readFileSync(snippetPath, "utf-8")).toEqual(output);
+      }
     });
   } else {
     beforeEach(async () => {
@@ -78,7 +82,11 @@ const assertConvert = (options) => {
       const libraryPath = path.join(process.env.SYNVERT_SNIPPETS_HOME, "lib", options.snippet + ".js");
       const rewriter = await Synvert.evalSnippet(libraryPath);
       await rewriter.process();
-      expect(await promisesFs.readFile(snippetPath, "utf-8")).toEqual(output);
+      if (options.newPath) {
+        expect(await promisesFs.readFile(path.join(SYNVERT_CODE_HOME, options.newPath), "utf-8")).toEqual(output);
+      } else {
+        expect(await promisesFs.readFile(snippetPath, "utf-8")).toEqual(output);
+      }
     });
   }
 };
