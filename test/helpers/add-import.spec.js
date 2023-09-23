@@ -79,6 +79,20 @@ describe("helpers/add-import", () => {
       });
     });
 
+    describe("inserts multiple", () => {
+      assertHelper({
+        input: `
+          class MyComponent {}
+        `,
+        output: `
+          import { Component, Fragment } from "react";
+          class MyComponent {}
+        `,
+        helper,
+        options: { namedImport: ["Component", "Fragment"], moduleSpecifier: "react" },
+      });
+    });
+
     describe("inserts unless exist but has default import", () => {
       assertHelper({
         input: `
@@ -94,6 +108,21 @@ describe("helpers/add-import", () => {
       });
     });
 
+    describe("inserts multiple unless exist but has default import", () => {
+      assertHelper({
+        input: `
+          import React from "react";
+          class MyComponent {}
+        `,
+        output: `
+          import React, { Component, Fragment } from "react";
+          class MyComponent {}
+        `,
+        helper,
+        options: { namedImport: ["Component", "Fragment"], moduleSpecifier: "react" },
+      });
+    });
+
     describe("does not insert if exist", () => {
       assertHelper({
         input: `
@@ -106,6 +135,21 @@ describe("helpers/add-import", () => {
         `,
         helper,
         options: { namedImport: "Component", moduleSpecifier: "react" },
+      });
+    });
+
+    describe("does not insert multiple if exist", () => {
+      assertHelper({
+        input: `
+          import { Component } from "react";
+          class MyComponent {}
+        `,
+        output: `
+          import { Component, Fragment } from "react";
+          class MyComponent {}
+        `,
+        helper,
+        options: { namedImport: ["Component", "Fragment"], moduleSpecifier: "react" },
       });
     });
   });
