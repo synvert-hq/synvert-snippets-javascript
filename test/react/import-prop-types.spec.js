@@ -8,8 +8,8 @@ describe(snippet, () => {
     `;
 
     const output = `
-      import React from "react";
       import PropTypes from "prop-types";
+      import React from "react";
     `;
 
     assertConvert({
@@ -17,6 +17,7 @@ describe(snippet, () => {
       output,
       snippet,
       path: "code.jsx",
+      helpers: ["helpers/add-import", "helpers/remove-imports"],
     });
   });
 
@@ -26,8 +27,8 @@ describe(snippet, () => {
     `;
 
     const output = `
-      import React, { Component } from "react";
       import PropTypes from "prop-types";
+      import React, { Component } from "react";
     `;
 
     assertConvert({
@@ -35,6 +36,7 @@ describe(snippet, () => {
       output,
       snippet,
       path: "code.jsx",
+      helpers: ["helpers/add-import", "helpers/remove-imports"],
     });
   });
 });
