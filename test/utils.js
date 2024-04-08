@@ -2,7 +2,7 @@ const fs = require("fs");
 const promisesFs = require("fs/promises");
 const path = require("path");
 const mock = require("mock-fs");
-const Synvert = require("synvert-core");
+const Synvert = require("@synvert-hq/synvert-core");
 
 process.env.SYNVERT_SNIPPETS_HOME = path.join(__dirname, "..");
 const SYNVERT_CODE_HOME = path.join(__dirname, "..", "src");
