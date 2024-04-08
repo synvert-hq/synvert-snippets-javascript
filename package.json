@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xinminlabs/synvert-snippets-javascript.git"
+    "url": "git+https://github.com/synvert-hq/synvert-snippets-javascript.git"
   },
   "keywords": [
     "synvert",
@@ -18,12 +18,12 @@
   "author": "Richard Huang",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/xinminlabs/synvert-snippets-javascript/issues"
+    "url": "https://github.com/synvert-hq/synvert-snippets-javascript/issues"
   },
-  "homepage": "https://github.com/xinminlabs/synvert-snippets-javascript#readme",
+  "homepage": "https://github.com/synvert-hq/synvert-snippets-javascript#readme",
   "devDependencies": {
     "jest": "^27.0.6",
     "mock-fs": "^5.0.0",
-    "synvert-core": "^2.18.1"
+    "@synvert-hq/synvert-core": "^2.19.2"
   }
 }
