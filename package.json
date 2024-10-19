@@ -24,6 +24,6 @@
   "devDependencies": {
     "@synvert-hq/synvert-core": "^2.19.4",
     "jest": "^27.0.6",
-    "mock-fs": "^5.0.0"
+    "mock-fs": "^5.4.0"
   }
 }
