@@ -1,118 +1,105 @@
 const fs = require("fs");
 const promisesFs = require("fs/promises");
 const path = require("path");
-const mock = require("mock-fs");
 const Synvert = require("@synvert-hq/synvert-core");
 
 process.env.SYNVERT_SNIPPETS_HOME = path.join(__dirname, "..");
-const SYNVERT_CODE_HOME = path.join(__dirname, "..", "src");
+const SYNVERT_CODE_HOME = path.join(__dirname, "..", "tmp");
 Synvert.Configuration.rootPath = SYNVERT_CODE_HOME.toString();
+Synvert.Configuration.respectGitignore = false;
 
-const otherSnippetsMockSync = (options) => {
-  const mocks = {};
-  if (options) {
-    options.forEach((option) => {
-      const libraryPath = path.join(process.env.SYNVERT_SNIPPETS_HOME, "lib", option + ".js");
-      const content = fs.readFileSync(libraryPath, "utf-8");
-      mocks[libraryPath] = content;
-    });
+const getCodePath = (options) => {
+  if (options.path) {
+    return path.join(SYNVERT_CODE_HOME, options.path);
   }
-  return mocks;
-};
 
-const otherSnippetsMock = async (options) => {
-  const mocks = {};
-  if (options) {
-    for await (const option of options) {
-      const libraryPath = path.join(process.env.SYNVERT_SNIPPETS_HOME, "lib", option + ".js");
-      const content = await promisesFs.readFile(libraryPath, "utf-8");
-      mocks[libraryPath] = content;
-    }
+  switch (options.snippet.split("/")[0]) {
+    case "scss":
+      return path.join(SYNVERT_CODE_HOME, options.snippet + '.scss');
+    case "sass":
+      return path.join(SYNVERT_CODE_HOME, options.snippet + '.sass');
+    case "css":
+      return path.join(SYNVERT_CODE_HOME, options.snippet + '.css');
+    case "typescript":
+      return path.join(SYNVERT_CODE_HOME, options.snippet + '.ts');
+    case "react":
+      return path.join(SYNVERT_CODE_HOME, options.snippet + '.jsx');
+    default:
+      return path.join(SYNVERT_CODE_HOME, options.snippet + '.js');
   }
-  return mocks;
-};
+}
+
+const getNewCodePath = (options) => {
+  if (options.newPath) {
+    return path.join(SYNVERT_CODE_HOME, options.newPath);
+  }
+
+  return getCodePath(options);
+}
 
 const assertConvert = (options) => {
-  const snippetPath = path.join(SYNVERT_CODE_HOME, options.path || "code.js");
+  const codePath = getCodePath(options);
   const { input, output } = options;
 
   if (process.env.SYNC === "true") {
     beforeEach(() => {
-      const libraryPath = path.join(process.env.SYNVERT_SNIPPETS_HOME, "lib", options.snippet + ".js");
-      const libraryContent = fs.readFileSync(libraryPath, "utf-8");
-      mock({
-        [libraryPath]: libraryContent,
-        [snippetPath]: input,
-        ...otherSnippetsMockSync(options.helpers),
-        ...otherSnippetsMockSync(options.subSnippets),
-      });
+      fs.mkdirSync(path.dirname(codePath), { recursive: true });
+      fs.writeFileSync(codePath, input);
     });
 
     afterEach(() => {
-      mock.restore();
+      fs.unlinkSync(getNewCodePath(options));
     });
 
     test("convert", () => {
-      const libraryPath = path.join(process.env.SYNVERT_SNIPPETS_HOME, "lib", options.snippet + ".js");
-      const rewriter = Synvert.evalSnippetSync(libraryPath);
+      const rewriter = Synvert.evalSnippetSync(options.snippet);
       rewriter.processSync();
       if (options.newPath) {
         expect(fs.readFileSync(path.join(SYNVERT_CODE_HOME, options.newPath), "utf-8")).toEqual(output);
       } else {
-        expect(fs.readFileSync(snippetPath, "utf-8")).toEqual(output);
+        expect(fs.readFileSync(codePath, "utf-8")).toEqual(output);
       }
     });
   } else {
     beforeEach(async () => {
-      const libraryPath = path.join(process.env.SYNVERT_SNIPPETS_HOME, "lib", options.snippet + ".js");
-      const libraryContent = await promisesFs.readFile(libraryPath, "utf-8");
-      mock({
-        [libraryPath]: libraryContent,
-        [snippetPath]: input,
-        ...(await otherSnippetsMock(options.helpers)),
-        ...(await otherSnippetsMock(options.subSnippets)),
-      });
+      await promisesFs.mkdir(path.dirname(codePath), { recursive: true });
+      await promisesFs.writeFile(codePath, input);
     });
 
-    afterEach(() => {
-      mock.restore();
+    afterEach(async () => {
+      await promisesFs.unlink(getNewCodePath(options));
     });
 
     test("convert", async () => {
-      const libraryPath = path.join(process.env.SYNVERT_SNIPPETS_HOME, "lib", options.snippet + ".js");
-      const rewriter = await Synvert.evalSnippet(libraryPath);
+      const rewriter = await Synvert.evalSnippet(options.snippet);
       await rewriter.process();
       if (options.newPath) {
         expect(await promisesFs.readFile(path.join(SYNVERT_CODE_HOME, options.newPath), "utf-8")).toEqual(output);
       } else {
-        expect(await promisesFs.readFile(snippetPath, "utf-8")).toEqual(output);
+        expect(await promisesFs.readFile(codePath, "utf-8")).toEqual(output);
       }
     });
   }
 };
 
 const assertHelper = (options) => {
-  const helperPath = path.join(SYNVERT_CODE_HOME, options.path || "code.js");
+  const helperPath = path.join(SYNVERT_CODE_HOME, options.helper + '.js');
   const { input, output } = options;
 
   if (process.env.SYNC === "true") {
     beforeEach(() => {
-      const helperLibraryPath = path.join(process.env.SYNVERT_SNIPPETS_HOME, "lib", options.helper + ".js");
-      const helperContent = fs.readFileSync(helperLibraryPath, "utf-8");
-      mock({
-        [helperLibraryPath]: helperContent,
-        [helperPath]: input,
-      });
+      fs.mkdirSync(path.dirname(helperPath), { recursive: true });
+      fs.writeFileSync(helperPath, input);
     });
 
     afterEach(() => {
-      mock.restore();
+      fs.unlinkSync(helperPath);
     });
 
     test("convert", () => {
       const rewriter = new Synvert.Rewriter("group", "name", function () {
         this.configure({ parser: Synvert.Parser.TYPESCRIPT });
-        this.withinFilesSync("*.{js,jsx}", function () {
+        this.withinFilesSync(Synvert.ALL_FILES, function () {
           this.callHelperSync(options.helper, options.options);
         });
       });
@@ -121,22 +108,18 @@ const assertHelper = (options) => {
     });
   } else {
     beforeEach(async () => {
-      const helperLibraryPath = path.join(process.env.SYNVERT_SNIPPETS_HOME, "lib", options.helper + ".js");
-      const helperContent = await promisesFs.readFile(helperLibraryPath, "utf-8");
-      mock({
-        [helperLibraryPath]: helperContent,
-        [helperPath]: input,
-      });
+      await promisesFs.mkdir(path.dirname(helperPath), { recursive: true });
+      await promisesFs.writeFile(helperPath, input);
     });
 
-    afterEach(() => {
-      mock.restore();
+    afterEach(async () => {
+      await promisesFs.unlink(helperPath);
     });
 
     test("convert", async () => {
       const rewriter = new Synvert.Rewriter("group", "name", async function () {
         this.configure({ parser: Synvert.Parser.TYPESCRIPT });
-        await this.withinFiles("*.{js,jsx}", async function () {
+        await this.withinFiles(Synvert.ALL_FILES, async function () {
           await this.callHelper(options.helper, options.options);
         });
       });

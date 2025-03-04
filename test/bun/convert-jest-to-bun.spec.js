@@ -12,11 +12,10 @@ describe(snippet, () => {
     `;
 
     assertConvert({
-      path: "test/foobar.spec.js",
+      path: "test/bun/convert-jest-to-bun.spec.js",
       input,
       output,
       snippet,
-      helpers: ["helpers/add-import"],
     });
   });
 
@@ -39,11 +38,10 @@ describe(snippet, () => {
     `;
 
     assertConvert({
-      path: "test/foobar.spec.js",
+      path: "test/bun/convert-jest-to-bun.spec.js",
       input,
       output,
       snippet,
-      helpers: ["helpers/add-import"],
     });
   });
 
@@ -66,11 +64,10 @@ describe(snippet, () => {
     `;
 
     assertConvert({
-      path: "test/foobar.spec.js",
+      path: "test/bun/convert-jest-to-bun.spec.js",
       input,
       output,
       snippet,
-      helpers: ["helpers/add-import"],
     });
   });
 });

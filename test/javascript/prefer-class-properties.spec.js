@@ -65,7 +65,7 @@ describe(snippet, () => {
       input,
       output,
       snippet,
-      path: "code.jsx",
+      path: "javascript/prefer-class-properties.jsx",
     });
   });
 
@@ -99,7 +99,7 @@ describe(snippet, () => {
       input,
       output,
       snippet,
-      path: "code.jsx",
+      path: "javascript/prefer-class-properties.jsx",
     });
   });
 });

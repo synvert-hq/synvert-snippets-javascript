@@ -33,10 +33,10 @@ describe(snippet, () => {
   `;
 
   assertConvert({
-    path: "code.sass",
+    path: "sass/convert-to-scss.sass",
     input,
     output,
     snippet,
-    newPath: "code.scss",
+    newPath: "sass/convert-to-scss.scss",
   });
 });
