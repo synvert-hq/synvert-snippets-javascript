@@ -17,6 +17,6 @@ describe(snippet, () => {
     input,
     output,
     snippet,
-    path: "code.jsx",
+    path: "react/upgrade-to-18.jsx",
   });
 });

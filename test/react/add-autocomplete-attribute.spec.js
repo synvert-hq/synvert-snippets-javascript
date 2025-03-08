@@ -17,7 +17,6 @@ describe(snippet, () => {
       input,
       output,
       snippet,
-      path: "code.jsx",
     });
   });
 
@@ -38,7 +37,6 @@ describe(snippet, () => {
       input,
       output,
       snippet,
-      path: "code.jsx",
     });
   });
 
@@ -71,7 +69,6 @@ describe(snippet, () => {
       input,
       output,
       snippet,
-      path: "code.jsx",
     });
   });
 });

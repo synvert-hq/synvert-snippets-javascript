@@ -36,6 +36,5 @@ describe(snippet, () => {
     input,
     output,
     snippet,
-    path: "code.js",
   });
 });

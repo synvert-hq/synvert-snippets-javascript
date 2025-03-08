@@ -21,7 +21,7 @@ describe(snippet, () => {
       input,
       output,
       snippet,
-      path: "code.jsx",
+      path: "react/import-named-component.jsx",
     });
   });
 
@@ -44,7 +44,7 @@ describe(snippet, () => {
       input,
       output,
       snippet,
-      path: "code.jsx",
+      path: "react/import-named-component.jsx",
     });
   });
 });

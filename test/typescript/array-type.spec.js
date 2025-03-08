@@ -15,7 +15,6 @@ describe(snippet, () => {
   `;
 
   assertConvert({
-    path: "code.ts",
     input,
     output,
     snippet,

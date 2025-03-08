@@ -17,7 +17,6 @@ describe(snippet, () => {
         const c = a() + b + x() + y();
       `,
       snippet,
-      helpers: ["helpers/remove-imports"],
     });
   });
 
@@ -36,7 +35,6 @@ describe(snippet, () => {
         const c = b(x, y);
       `,
       snippet,
-      helpers: ["helpers/remove-imports"],
     });
   });
 
@@ -59,7 +57,6 @@ describe(snippet, () => {
         const c = a(y);
       `,
       snippet,
-      helpers: ["helpers/remove-imports"],
     });
   });
 
@@ -77,7 +74,6 @@ describe(snippet, () => {
         console.log(y);
       `,
       snippet,
-      helpers: ["helpers/remove-imports"],
     });
   });
 
@@ -92,7 +88,6 @@ describe(snippet, () => {
         console.log(c);
       `,
       snippet,
-      helpers: ["helpers/remove-imports"],
     });
   });
 
@@ -108,7 +103,6 @@ describe(snippet, () => {
         const c = a() + b;
       `,
       snippet,
-      helpers: ["helpers/remove-imports"],
     });
   });
 
@@ -123,7 +117,6 @@ describe(snippet, () => {
         const c = a() + b;
       `,
       snippet,
-      helpers: ["helpers/remove-imports"],
     });
   });
 
@@ -138,7 +131,6 @@ describe(snippet, () => {
         p.test();
       `,
       snippet,
-      helpers: ["helpers/remove-imports"],
     });
   });
 
@@ -152,7 +144,6 @@ describe(snippet, () => {
         console.log("p");
       `,
       snippet,
-      helpers: ["helpers/remove-imports"],
     });
   });
 
@@ -167,7 +158,6 @@ describe(snippet, () => {
         console.log(y);
       `,
       snippet,
-      helpers: ["helpers/remove-imports"],
     });
   });
 
@@ -194,8 +184,7 @@ describe(snippet, () => {
         }
       `,
       snippet,
-      helpers: ["helpers/remove-imports"],
-      path: "code.jsx",
+      path: "javascript/no-unused-imports.jsx",
     });
   });
 });
