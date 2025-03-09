@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/synvert-hq/synvert-snippets-javascript#readme",
   "devDependencies": {
-    "@synvert-hq/synvert-core": "^2.23.0",
+    "@synvert-hq/synvert-core": "^2.24.1",
     "jest": "^27.0.6",
     "mock-fs": "^5.4.0"
   }
