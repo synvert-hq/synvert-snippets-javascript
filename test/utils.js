@@ -113,7 +113,7 @@ const assertHelper = (options) => {
       const rewriter = new Synvert.Rewriter("group", "name", function () {
         this.configure({ parser: Synvert.Parser.TYPESCRIPT });
         this.withinFilesSync("*.{js,jsx}", function () {
-          this.callHelperSync(options.helper, options.options);
+          this.callHelperSync(options.helper, options.options, options.helperFn.bind(this));
         });
       });
       rewriter.processSync();
@@ -137,7 +137,7 @@ const assertHelper = (options) => {
       const rewriter = new Synvert.Rewriter("group", "name", async function () {
         this.configure({ parser: Synvert.Parser.TYPESCRIPT });
         await this.withinFiles("*.{js,jsx}", async function () {
-          await this.callHelper(options.helper, options.options);
+          await this.callHelper(options.helper, options.options, options.helperFn.bind(this));
         });
       });
       await rewriter.process();
