@@ -9,11 +9,11 @@ describe(snippet, () => {
           event.preventDefault();
 
           editPost();
-        }
+        };
 
         const deletePost = () => {
           doDelete();
-        }
+        };
 
         const printIcon = (
           <a href="#" onClick={() => onPrint()}>
@@ -27,8 +27,8 @@ describe(snippet, () => {
           <a href="#" onClick={deletePost}>Delete</a>
           {printIcon}
           <a href="#" onClick={() => { doPop(false) }}>Pop</a>
-        )
-      }
+        );
+      };
       export default Post;
     `;
     const output = `
@@ -37,13 +37,13 @@ describe(snippet, () => {
           event.preventDefault();
 
           editPost();
-        }
+        };
 
         const deletePost = (event) => {
           event.preventDefault();
 
           doDelete();
-        }
+        };
 
         const printIcon = (
           <a href="#" onClick={handlePrint}>
@@ -55,19 +55,19 @@ describe(snippet, () => {
           event.preventDefault();
 
           onPrint();
-        }
+        };
 
         const onNewPost = (event) => {
           event.preventDefault();
 
           newPost();
-        }
+        };
 
         const onDoPop = (event) => {
           event.preventDefault();
 
           doPop(false);
-        }
+        };
 
         return (
           <a href="#" onClick={onNewPost}>New</a>
@@ -75,8 +75,8 @@ describe(snippet, () => {
           <a href="#" onClick={deletePost}>Delete</a>
           {printIcon}
           <a href="#" onClick={onDoPop}>Pop</a>
-        )
-      }
+        );
+      };
       export default Post;
     `;
 
