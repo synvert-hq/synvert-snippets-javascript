@@ -2,7 +2,7 @@ const snippet = "react/prevent-default";
 const { assertConvert } = require("../utils");
 
 describe(snippet, () => {
-  describe('add a function to prevent default', () => {
+  describe("add a function to prevent default", () => {
     const input = `
       const Post = ({ newPost, editPost, doDelete, onPrint, doPop }) => {
         const onEditPost = (event) => {
