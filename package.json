@@ -25,5 +25,8 @@
     "@synvert-hq/synvert-core": "^2.24.5",
     "jest": "^27.0.6",
     "mock-fs": "^5.4.0"
+  },
+  "dependencies": {
+    "@synvert-hq/node-query": "^1.19.5"
   }
 }
